@@ -29,6 +29,5 @@ class PHI2c(_CommonsI2c):
         @brief Get the pH probe slope
         """
         raise NotImplementedError('not implemented yet')
-        return
 
     # ----- Setters pH methods ----- ######

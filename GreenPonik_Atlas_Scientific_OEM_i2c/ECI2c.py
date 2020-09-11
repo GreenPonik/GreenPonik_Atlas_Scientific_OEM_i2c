@@ -29,7 +29,6 @@ class ECI2c(_CommonsI2c):
         @brief Get current ec probe k
         """
         raise NotImplementedError('not implemented yet')
-        return
 
     # ----- Setters EC methods ----- ######
 
@@ -38,4 +37,3 @@ class ECI2c(_CommonsI2c):
         @brief Set the ec probe k
         """
         raise NotImplementedError('not implemented yet')
-        return
