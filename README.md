@@ -23,7 +23,6 @@
 - [GreenPonik_Atlas_Scientific_OEM_i2c.py Library for Raspberry pi](#GreenPonikAtlasScientificOEMi2cpy-library-for-raspberry-pi)
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
-- [Methods](#methods)
 - [Examples](#examples)
 - [Credits](#credits)
 
