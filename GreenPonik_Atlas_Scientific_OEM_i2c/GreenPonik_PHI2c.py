@@ -28,6 +28,7 @@ class PHI2c(_CommonsI2c):
         """
         @brief Get the pH probe slope
         """
-        return self._device.query("Slope,?")
+        raise NotImplementedError('not implemented yet')
+        return
 
     # ----- Setters pH methods ----- ######

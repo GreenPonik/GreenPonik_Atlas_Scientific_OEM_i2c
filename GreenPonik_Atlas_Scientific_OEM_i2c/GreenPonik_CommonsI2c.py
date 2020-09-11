@@ -45,6 +45,7 @@ class _CommonsI2c(_AtlasOEMI2c):
                 print("Calibration applied")
             else:
                 raise Exception("Cannot confirm the operation was correctly executed")
+                return
 
     # ----- Getters ----- ########
 
@@ -317,20 +318,19 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param device = AltasI2c instance
         @param int = new i2c add
         """
-        if (
-            addr not in self.ADDR_OEM_HEXA
-            and addr not in self.ADDR_OEM_DECIMAL
-        ):
+        if (addr not in self.ADDR_OEM_HEXA and addr not in self.ADDR_OEM_DECIMAL):
             raise Exception(
                 "only decimal address expected, convert hexa by using \
                     AtlasI2c.ADDR_OEM_DECIMAL or AtlasI2c.ADDR_EZO_DECIMAL"
             )
+            return
         else:
             """
             write workflow to change physical i2c address
             """
             self.address(addr)
             raise NotImplementedError("write workflow to change physical i2c address")
+            return
 
     def set_led(self, state=0x01):
         """

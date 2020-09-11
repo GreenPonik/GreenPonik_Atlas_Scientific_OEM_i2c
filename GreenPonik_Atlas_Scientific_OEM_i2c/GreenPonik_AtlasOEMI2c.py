@@ -218,13 +218,13 @@ class _AtlasOEMI2c:
                 AtlasI2c.ADDR_OEM_HEXA \
                 and AtlasI2c.ADDR_OEM_DECIMAL"
             )
-
+            return
         if moduletype not in self.ALLOWED_MODULES_TYPES:
             raise Exception(
                 "sorry i can just interact \
                 with EC or PH moduletype"
             )
-
+            return
         # private properties
         self._debug = False
         self._bus_number = bus
@@ -280,6 +280,7 @@ class _AtlasOEMI2c:
             self.mysmbus.write_byte_data(self._address, register, v)
         else:  # "str" == type(v).__name__:
             raise Exception("cannot write this in smbus/i2c: ", v)
+            return
         if self._debug:
             print("Write %s on register: %s" % (v, hex(register)))
 

@@ -28,7 +28,8 @@ class ECI2c(_CommonsI2c):
         """
         @brief Get current ec probe k
         """
-        return self._device.query("K,?")
+        raise NotImplementedError('not implemented yet')
+        return
 
     # ----- Setters EC methods ----- ######
 
@@ -36,4 +37,5 @@ class ECI2c(_CommonsI2c):
         """
         @brief Set the ec probe k
         """
-        return self._device.query("K,%.2f" % k)
+        raise NotImplementedError('not implemented yet')
+        return
