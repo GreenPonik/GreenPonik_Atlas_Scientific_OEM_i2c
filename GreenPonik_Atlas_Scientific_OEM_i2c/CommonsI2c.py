@@ -16,7 +16,7 @@ https://atlas-scientific.com/files/oem_pH_datasheet.pdf
 """
 
 import time
-from GreenPonik_Atlas_Scientific_OEM_i2c.GreenPonik_AtlasOEMI2c import _AtlasOEMI2c
+from GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c import _AtlasOEMI2c
 
 
 class _CommonsI2c(_AtlasOEMI2c):
