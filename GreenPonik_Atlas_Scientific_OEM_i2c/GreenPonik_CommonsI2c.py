@@ -223,7 +223,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         register = self.OEM_EC_REGISTERS["device_sleep"]
         mode = self.read(register)
         if self.debug:
-            print("Device is currently in mode:  %s" % ("wakeup" if 0x01 == hex(mode) else "sleep"))
+            print("Device is currently in mode:  %s" % ("wakeup" if hex(0x01) == hex(mode) else "sleep"))
 
     # ----- Setters ----- ########
 
