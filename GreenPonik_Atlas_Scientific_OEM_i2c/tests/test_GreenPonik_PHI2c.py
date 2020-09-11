@@ -1,10 +1,27 @@
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 import sys
 
 
-class Test_PHI2c(unittest.TestCase):
-    @patch("GreenPonik_Atlas_Scientific_i2c.GreenPonik_PHI2c.PHI2c")
+class FNCTLMock():
+    def __init__(self):
+        pass
+
+    def ioctl():
+        pass
+
+
+class SmbusMock:
+    def __init__(self):
+        pass
+
+
+sys.modules["fcntl"] = FNCTLMock()
+sys.modules["smbus"] = SmbusMock()
+
+
+class Test_GreenPonik_PHI2c(unittest.TestCase):
+    @patch("GreenPonik_Atlas_Scientific_OEM_i2c.GreenPonik_PHI2c.PHI2c")
     def test_get_device_info(self, Mock):
         ph_i2c = Mock()
         expected = "SUCCESS: EC, module type: 4 and firmware is: 5"
@@ -13,7 +30,7 @@ class Test_PHI2c(unittest.TestCase):
         self.assertIsNotNone(info)
         self.assertEqual(info, expected)
 
-    @patch("GreenPonik_Atlas_Scientific_i2c.GreenPonik_PHI2c.PHI2c")
+    @patch("GreenPonik_Atlas_Scientific_OEM_i2c.GreenPonik_PHI2c.PHI2c")
     def test_get_type(self, Mock):
         ph_i2c = Mock()
         expected = 1
@@ -23,7 +40,7 @@ class Test_PHI2c(unittest.TestCase):
         self.assertTrue(type(value).__name__, "int")
         self.assertEqual(value, expected)
 
-    @patch("GreenPonik_Atlas_Scientific_i2c.GreenPonik_PHI2c.PHI2c")
+    @patch("GreenPonik_Atlas_Scientific_OEM_i2c.GreenPonik_PHI2c.PHI2c")
     def test_get_firmware(self, Mock):
         ph_i2c = Mock()
         expected = 5
@@ -33,7 +50,7 @@ class Test_PHI2c(unittest.TestCase):
         self.assertTrue(type(value).__name__, "int")
         self.assertEqual(value, expected)
 
-    @patch("GreenPonik_Atlas_Scientific_i2c.GreenPonik_PHI2c.PHI2c")
+    @patch("GreenPonik_Atlas_Scientific_OEM_i2c.GreenPonik_PHI2c.PHI2c")
     def test_get_read(self, Mock):
         ph_i2c = Mock()
         expected = 6.23

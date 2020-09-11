@@ -1,4 +1,5 @@
 #! /usr/bin/python3
+
 """
 @package Class to communicate with Atlas Scientific OEM sensors in I2C mode.
 #######################################################################
@@ -23,43 +24,6 @@ class _AtlasOEMI2c:
     ALLOWED_MODULES_TYPES = {
         "EC",
         "PH",
-    }
-    """@brief
-    Array key=>value for each EZO sensors i2c hexa addresses
-    """
-
-    ADDR_EZO_HEXA = {
-        0x61,  # DO
-        0x62,  # ORP
-        0x63,  # PH
-        0x64,  # EC
-    }
-    """@brief
-    Array value of each EZO sensors i2c decimal addresses
-    """
-    ADDR_EZO_DECIMAL = {
-        97,  # DO
-        98,  # ORP
-        99,  # PH
-        100,  # EC
-    }
-    """@brief
-    Array key=>value for each EZO sensors name i2c hexa addresses
-    """
-    ADDR_EZO_TXT_TO_HEXA = {
-        "DO": 0x61,
-        "ORP": 0x62,
-        "PH": 0x63,
-        "EC": 0x64,
-    }
-    """@brief
-    Array key=>value for each EZO sensors i2c hexa to decimal addresses
-    """
-    ADDR_EZO_HEXA_TO_DECIMAL = {
-        0x61: 97,  # DO
-        0x62: 98,  # ORP
-        0x63: 99,  # PH
-        0x64: 100,  # EC
     }
     """@brief
     Array key=>value for each OEM sensors i2c hexa addresses
@@ -180,9 +144,6 @@ class _AtlasOEMI2c:
     # timeout for regular commands
     SHORT_TIMEOUT = 0.3
 
-    LONG_TIMEOUT_COMMANDS = ("R", "CAL")
-    SLEEP_COMMANDS = ("SLEEP",)
-
     @property
     def debug(self):
         return self._debug
@@ -190,10 +151,6 @@ class _AtlasOEMI2c:
     @debug.setter
     def debug(self, d):
         self._debug = d
-
-    @property
-    def mysmbus(self):
-        return self._smbus
 
     @property
     def bus_number(self):
@@ -294,21 +251,21 @@ class _AtlasOEMI2c:
             print("Raw response from i2c: ", raw)
         return raw
 
-    def _prepare_values_to_write_block(self, v):
-        """
-        @brief from AdafruitPureIO smbus class
-        the write_block_data(self, addr, cmd, vals) need specific data organisation to work:
-        >>  `Write a block of data to the specified cmd register of the device.
-            The amount of data to write should be the first byte inside the vals
-            string/bytearray and that count of bytes of data to write should follow it.`
-        """
-        b = bytearray(len(v) + 1)
-        b[0] = len(v)
-        i = 1
-        for elm in v:
-            b[i] = hex(elm)
-            i += 1
-        return b
+    # def _prepare_values_to_write_block(self, v):
+    #     """
+    #     @brief from AdafruitPureIO smbus class
+    #     the write_block_data(self, addr, cmd, vals) need specific data organisation to work:
+    #     >>  `Write a block of data to the specified cmd register of the device.
+    #         The amount of data to write should be the first byte inside the vals
+    #         string/bytearray and that count of bytes of data to write should follow it.`
+    #     """
+    #     b = bytearray(len(v) + 1)
+    #     b[0] = len(v)
+    #     i = 1
+    #     for elm in v:
+    #         b[i] = hex(elm)
+    #         i += 1
+    #     return b
 
     def write(self, register, v):
         """

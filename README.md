@@ -1,18 +1,18 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_i2c&metric=alert_status)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_i2c)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_i2c&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_i2c)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c&metric=alert_status)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c)
 
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_i2c&metric=ncloc)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_i2c)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_i2c&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_i2c)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c&metric=ncloc)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c)
 
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_i2c&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_i2c)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_i2c&metric=security_rating)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_i2c)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_i2c&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_i2c)
-
-
-![Upload Python Package](https://github.com/GreenPonik/GreenPonik_Atlas_Scientific_i2c/workflows/Upload%20Python%20Package/badge.svg?event=release)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c&metric=security_rating)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=GreenPonik_GreenPonik_Atlas_Scientific_OEM_i2c)
 
 
-# GreenPonik_Atlas_Scientific_i2c.py Library for Raspberry pi
+![Upload Python Package](https://github.com/GreenPonik/GreenPonik_Atlas_Scientific_OEM_i2c/workflows/Upload%20Python%20Package/badge.svg?event=release)
+
+
+# GreenPonik_Atlas_Scientific_OEM_i2c.py Library for Raspberry pi
 ## A python3 class to use Atlas Scientific OEM circuits on i2c bus.<br>
 
 ## ! Only tested on Raspberry Pi 3 A+ !<br>
@@ -20,7 +20,7 @@
 
 # Table of Contents
 
-- [GreenPonik_Atlas_Scientific_i2c.py Library for Raspberry pi](#GreenPonikAtlasScientifici2cpy-library-for-raspberry-pi)
+- [GreenPonik_Atlas_Scientific_OEM_i2c.py Library for Raspberry pi](#GreenPonikAtlasScientificOEMi2cpy-library-for-raspberry-pi)
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Methods](#methods)
@@ -84,7 +84,7 @@ if __name__ == "__main__":
         print("get device infos")
         ph_i2c = PHI2c(
             bus=1,
-            address=PHI2c.ADDR_EZO_TXT_TO_HEXA['PH'],
+            address=PHI2c.ADDR_OEM_TXT_TO_HEXA['PH'],
             moduletype="PH",
             name="PH"
         )

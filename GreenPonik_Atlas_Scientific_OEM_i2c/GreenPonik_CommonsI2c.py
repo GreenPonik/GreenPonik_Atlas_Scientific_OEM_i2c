@@ -15,7 +15,7 @@ https://github.com/AtlasScientific/Raspberry-Pi-sample-code/blob/master/AtlasI2C
 """
 
 import time
-from GreenPonik_Atlas_Scientific_i2c.GreenPonik_AtlasOEMI2c import _AtlasOEMI2c
+from GreenPonik_Atlas_Scientific_OEM_i2c.GreenPonik_AtlasOEMI2c import _AtlasOEMI2c
 
 
 class _CommonsI2c(_AtlasOEMI2c):

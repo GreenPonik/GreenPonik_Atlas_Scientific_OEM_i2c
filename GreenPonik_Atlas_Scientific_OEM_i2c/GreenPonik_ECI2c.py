@@ -14,7 +14,7 @@ Source code is based on Atlas Scientific documentations:
 https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf
 https://atlas-scientific.com/files/oem_pH_datasheet.pdf
 """
-from GreenPonik_Atlas_Scientific_i2c.GreenPonik_CommonsI2c import _CommonsI2c
+from GreenPonik_Atlas_Scientific_OEM_i2c.GreenPonik_CommonsI2c import _CommonsI2c
 
 
 class ECI2c(_CommonsI2c):
