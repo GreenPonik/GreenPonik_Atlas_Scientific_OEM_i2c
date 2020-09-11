@@ -2,16 +2,17 @@
 
 """
 @package Class to communicate with Atlas Scientific sensors in I2C mode.
-####################################################################
-####################################################################
-####################################################################
-##################### Atlas Scientific i2c #########################
-######################### by GreenPonik ############################
-####################################################################
-####################################################################
-####################################################################
-Source code is based on examples from Atlas Scientific:
-https://github.com/AtlasScientific/Raspberry-Pi-sample-code/blob/master/AtlasI2C.py
+###########################################################################
+###########################################################################
+###########################################################################
+####################### Atlas Scientific i2c ##############################
+########################### by GreenPonik #################################
+###########################################################################
+###########################################################################
+###########################################################################
+Source code is based on Atlas Scientific documentations:
+https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf
+https://atlas-scientific.com/files/oem_pH_datasheet.pdf
 """
 
 import time
@@ -22,13 +23,6 @@ class _CommonsI2c(_AtlasOEMI2c):
     """
     @brief commons methods for EC and PH OEM circuits
     """
-
-    # def __init__(self, device: AtlasI2c):
-    #     """
-    #     @brief pass has argument an instance of AtlasI2C class
-    #     """
-    #     self = device
-
     def _convert_raw_hex_to_float(self, byte_array):
         """
         @brief convert bytearray response to float result
@@ -241,7 +235,6 @@ class _CommonsI2c(_AtlasOEMI2c):
                 "device_temperature_comp_msb"
             ]
         byte_array = int(round(t * 100)).to_bytes(4, "big")
-        # values = ["0x%02x" % b for b in byte_array]
         if self.debug:
             print("Temperature to set: %.2f" % t)
             print(
@@ -260,11 +253,9 @@ class _CommonsI2c(_AtlasOEMI2c):
         if "EC" == self.moduletype:
             start_register = (self.OEM_EC_REGISTERS["device_calibration_msb"],)
             byte_array = int(round(value * 100)).to_bytes(4, "big")
-            # values = ["0x%02x" % b for b in byte_array]
         elif "PH" == self.moduletype:
             start_register = self.OEM_PH_REGISTERS["device_calibration_msb"]
             byte_array = int(round(value * 1000)).to_bytes(4, "big")
-            # values = ["0x%02x" % b for b in byte_array]
         self.write(start_register, byte_array)
         if self.debug:
             print("Value to send: %.2f" % value)
@@ -327,9 +318,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param int = new i2c add
         """
         if (
-            addr not in self.ADDR_EZO_HEXA
-            and addr not in self.ADDR_EZO_DECIMAL
-            and addr not in self.ADDR_OEM_HEXA
+            addr not in self.ADDR_OEM_HEXA
             and addr not in self.ADDR_OEM_DECIMAL
         ):
             raise Exception(

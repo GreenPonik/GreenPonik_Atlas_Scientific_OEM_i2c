@@ -2,14 +2,14 @@
 
 """
 @package Class to communicate with Atlas Scientific OEM sensors in I2C mode.
-#######################################################################
-#######################################################################
-#######################################################################
-##################### Atlas Scientific i2c ############################
-######################### by GreenPonik ###############################
-#######################################################################
-#######################################################################
-#######################################################################
+###########################################################################
+###########################################################################
+###########################################################################
+####################### Atlas Scientific i2c ##############################
+########################### by GreenPonik #################################
+###########################################################################
+###########################################################################
+###########################################################################
 Source code is based on Atlas Scientific documentations:
 https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf
 https://atlas-scientific.com/files/oem_pH_datasheet.pdf
@@ -208,11 +208,9 @@ class _AtlasOEMI2c:
         @param string => device module type
         """
         if None is addr or (
-            addr not in self.ADDR_EZO_HEXA
-            and addr not in self.ADDR_EZO_DECIMAL
-            and addr not in self.ADDR_OEM_HEXA
-            and addr not in self.ADDR_OEM_DECIMAL
-        ):
+           addr not in self.ADDR_OEM_HEXA
+           and addr not in self.ADDR_OEM_DECIMAL
+           ):
             raise Exception(
                 "You have to give a value to addr argument \
                 take a look on AtlasI2c.ADDR_EZO_HEXA, \
