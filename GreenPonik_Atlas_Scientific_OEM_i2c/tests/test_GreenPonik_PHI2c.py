@@ -7,7 +7,7 @@ class FNCTLMock():
     def __init__(self):
         pass
 
-    def ioctl():
+    def ioctl(self):
         pass
 
 
