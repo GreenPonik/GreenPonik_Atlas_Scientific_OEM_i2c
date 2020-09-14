@@ -1,4 +1,4 @@
-from GreenPonik_Altas_Scientific_OEM_i2c.GreenPonik_ECI2c import ECI2c
+from GreenPonik_Altas_Scientific_OEM_i2c.ECI2c import ECI2c
 
 if __name__ == "__main__":
     try:

@@ -39,10 +39,8 @@ or
 ```
 ```python
 
-from GreenPonik_Altas_Scientific_i2c.GreenPonik_Altas_Scientific_OEM_i2c import (
-    ECI2c,
-    PHI2c,
-)
+from GreenPonik_Altas_Scientific_i2c.ECI2c import ECI2c
+from GreenPonik_Altas_Scientific_i2c.PHI2c import PHI2c
 ```
 
 # Examples
@@ -51,7 +49,7 @@ from GreenPonik_Altas_Scientific_i2c.GreenPonik_Altas_Scientific_OEM_i2c import 
 works with EC circuit https://www.atlas-scientific.com/circuits/conductivity-oem-circuit/<br>
 
 ```python
-from GreenPonik_Altas_Scientific_OEM_i2c.GreenPonik_ECI2c import ECI2c
+from GreenPonik_Altas_Scientific_OEM_i2c.ECI2c import ECI2c
 
 if __name__ == "__main__":
     try:
@@ -76,7 +74,7 @@ go to [ec example](examples/read_ec.py)
 works with pH circuit https://www.atlas-scientific.com/circuits/ph-oem-circuit/<br>
 
 ```python
-from GreenPonik_Altas_Scientific_OEM_i2c.GreenPonik_PHI2c import PHI2c
+from GreenPonik_Altas_Scientific_OEM_i2c.PHI2c import PHI2c
 
 if __name__ == "__main__":
     try:
@@ -85,7 +83,6 @@ if __name__ == "__main__":
             bus=1,
             address=PHI2c.ADDR_OEM_TXT_TO_HEXA['PH'],
             moduletype="PH",
-            name="PH"
         )
         print(ph_i2c.get_device_info())
         print(ph_i2c.get_read())
