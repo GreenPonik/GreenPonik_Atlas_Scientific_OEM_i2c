@@ -23,6 +23,7 @@ class _CommonsI2c(_AtlasOEMI2c):
     """
     @brief commons methods for EC and PH OEM circuits
     """
+
     def _convert_raw_hex_to_float(self, byte_array):
         """
         @brief convert bytearray response to float result
@@ -218,7 +219,10 @@ class _CommonsI2c(_AtlasOEMI2c):
         register = self.OEM_EC_REGISTERS["device_sleep"]
         mode = self.read(register)
         if self.debug:
-            print("Device is currently in mode:  %s" % ("wakeup" if hex(0x01) == hex(mode) else "sleep"))
+            print(
+                "Device is currently in mode:  %s"
+                % ("wakeup" if hex(0x01) == hex(mode) else "sleep")
+            )
 
     # ----- Setters ----- ########
 
@@ -228,13 +232,9 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param t = float temperature value
         """
         if "EC" == self.moduletype:
-            start_register = self.OEM_EC_REGISTERS[
-                "device_temperature_comp_msb"
-            ]
+            start_register = self.OEM_EC_REGISTERS["device_temperature_comp_msb"]
         elif "PH" == self.moduletype:
-            start_register = self.OEM_PH_REGISTERS[
-                "device_temperature_comp_msb"
-            ]
+            start_register = self.OEM_PH_REGISTERS["device_temperature_comp_msb"]
         byte_array = int(round(t * 100)).to_bytes(4, "big")
         if self.debug:
             print("Temperature to set: %.2f" % t)
@@ -272,8 +272,10 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param string point => "dry", "single", "low", "mid", "high" only
         """
         if point not in ("dry", "single", "low", "mid", "high"):
-            raise Exception('missing string point argument, \
-                can only be "dry", "single", "low", "mid", "high"')
+            raise Exception(
+                'missing string point argument, \
+                can only be "dry", "single", "low", "mid", "high"'
+            )
         if "EC" == self.moduletype:
             points = {"dry": 0x02, "single": 0x03, "low": 0x04, "high": 0x05}
             register = self.OEM_EC_REGISTERS["device_calibration_request"]
@@ -282,12 +284,8 @@ class _CommonsI2c(_AtlasOEMI2c):
             register = self.OEM_PH_REGISTERS["device_calibration_request"]
         self._set_calibration_registers(value)
         time.sleep(self.long_timeout)
-        self.write(
-            register, points[point]
-        )  # apply point calibration data
-        time.sleep(
-            self.short_timeout
-        )  # wait before read register to get confirmation
+        self.write(register, points[point])  # apply point calibration data
+        time.sleep(self.short_timeout)  # wait before read register to get confirmation
         conf = self.read(register)
         self._check_calibration_confirm(conf)
         return conf
@@ -301,9 +299,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         elif "PH" == self.moduletype:
             register = self.OEM_PH_REGISTERS["device_calibration_request"]
         self.write(register, 0x01)  # send 0x01 to clear calibration data
-        time.sleep(
-            self.short_timeout
-        )  # wait before read register to get confirmation
+        time.sleep(self.short_timeout)  # wait before read register to get confirmation
         conf = self.read(register)
         self._check_calibration_confirm(conf)
         return conf
@@ -314,7 +310,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param device = AltasI2c instance
         @param int = new i2c add
         """
-        if (addr not in self.ADDR_OEM_HEXA and addr not in self.ADDR_OEM_DECIMAL):
+        if addr not in self.ADDR_OEM_HEXA and addr not in self.ADDR_OEM_DECIMAL:
             raise Exception(
                 "only decimal address expected, convert hexa by using \
                     AtlasI2c.ADDR_OEM_DECIMAL or AtlasI2c.ADDR_EZO_DECIMAL"
@@ -334,7 +330,10 @@ class _CommonsI2c(_AtlasOEMI2c):
         register = self.OEM_EC_REGISTERS["device_led"]
         self.write(register, state)
         if self.debug:
-            print("Led status change to:  %s" % ("On" if hex(0x01) == hex(state) else "OFF"))
+            print(
+                "Led status change to:  %s"
+                % ("On" if hex(0x01) == hex(state) else "OFF")
+            )
 
     def set_wakeup_sleep_mode(self, action=0x01):
         """
@@ -345,4 +344,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         register = self.OEM_EC_REGISTERS["device_sleep"]
         self.write(register, action)
         if self.debug:
-            print("Device is now:  %s" % ("wakeup" if hex(0x01) == hex(action) else "sleep"))
+            print(
+                "Device is now:  %s"
+                % ("wakeup" if hex(0x01) == hex(action) else "sleep")
+            )
