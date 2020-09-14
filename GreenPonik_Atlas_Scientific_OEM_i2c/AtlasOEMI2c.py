@@ -62,11 +62,6 @@ class _AtlasOEMI2c:
         0x67: 103,  # EC
     }
 
-    ONE_BYTE_READ = 0x01
-    TWO_BYTE_READ = 0x02
-    THREE_BYTE_READ = 0x03
-    FOUR_BYTE_READ = 0x04
-
     OEM_EC_REGISTERS = {
         "device_type": 0x00,
         "device_firmware": 0x01,
@@ -135,14 +130,19 @@ class _AtlasOEMI2c:
         "device_ph_lsb": 0x19,  # 0x16 - 0x19 4 registers
     }
 
+    ONE_BYTE_READ = 0x01
+    TWO_BYTE_READ = 0x02
+    THREE_BYTE_READ = 0x03
+    FOUR_BYTE_READ = 0x04
+
     # the default bus for I2C on the newer Raspberry Pis,
     # certain older boards use bus 0
     DEFAULT_BUS = 1
 
     # the timeout needed to query readings and calibrations
-    LONG_TIMEOUT = 1.5
+    DEFAULT_LONG_TIMEOUT = 1.5
     # timeout for regular commands
-    SHORT_TIMEOUT = 0.3
+    DEFAULT_SHORT_TIMEOUT = 0.3
 
     @property
     def debug(self):
@@ -211,7 +211,7 @@ class _AtlasOEMI2c:
            addr not in self.ADDR_OEM_HEXA
            and addr not in self.ADDR_OEM_DECIMAL
            ):
-            raise Exception(
+            raise BaseException(
                 "You have to give a value to addr argument \
                 take a look on AtlasI2c.ADDR_EZO_HEXA, \
                 AtlasI2c.ADDR_EZO_DECIMAL, \
@@ -219,7 +219,7 @@ class _AtlasOEMI2c:
                 and AtlasI2c.ADDR_OEM_DECIMAL"
             )
         if moduletype not in self.ALLOWED_MODULES_TYPES:
-            raise Exception(
+            raise BaseException(
                 "sorry i can just interact \
                 with EC or PH moduletype"
             )
@@ -229,8 +229,8 @@ class _AtlasOEMI2c:
         self._address = addr
         self._name = moduletype.upper()
         self._module = moduletype.upper()
-        self._short_timeout = self.SHORT_TIMEOUT
-        self._long_timeout = self.LONG_TIMEOUT
+        self._short_timeout = self.DEFAULT_SHORT_TIMEOUT
+        self._long_timeout = self.DEFAULT_LONG_TIMEOUT
         self._smbus = SMBus(self._bus_number)
 
     def read(self, register, num_of_bytes=1):
@@ -247,22 +247,6 @@ class _AtlasOEMI2c:
             print("Raw response from i2c: ", raw)
         return raw
 
-    # def _prepare_values_to_write_block(self, v):
-    #     """
-    #     @brief from AdafruitPureIO smbus class
-    #     the write_block_data(self, addr, cmd, vals) need specific data organisation to work:
-    #     >>  `Write a block of data to the specified cmd register of the device.
-    #         The amount of data to write should be the first byte inside the vals
-    #         string/bytearray and that count of bytes of data to write should follow it.`
-    #     """
-    #     b = bytearray(len(v) + 1)
-    #     b[0] = len(v)
-    #     i = 1
-    #     for elm in v:
-    #         b[i] = hex(elm)
-    #         i += 1
-    #     return b
-
     def write(self, register, v):
         """
         @brief
@@ -271,13 +255,11 @@ class _AtlasOEMI2c:
            and len(v) > 1
            and ("bytearray" == type(v).__name__ or "bytes" == type(v).__name__)
            ):
-            # v = self._prepare_values_to_write_block(v)
-            # self._smbus.write_block_data(self._address, register, v)
             self._smbus.write_i2c_block_data(self._address, register, v)
         elif "int" == type(v).__name__:
             self._smbus.write_byte_data(self._address, register, v)
-        else:  # "str" == type(v).__name__:
-            raise Exception("cannot write this in smbus/i2c: ", v)
+        else:
+            raise BaseException("cannot write this in smbus/i2c: ", v)
         if self._debug:
             print("Write %s on register: %s" % (v, hex(register)))
 

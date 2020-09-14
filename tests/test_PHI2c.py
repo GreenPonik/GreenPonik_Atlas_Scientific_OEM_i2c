@@ -4,15 +4,14 @@ import sys
 
 
 class FNCTLMock():
-    def __init__(self):
-        pass
-
     def ioctl(self):
+        # simulate the FNCTL.iotctl for tests only
         pass
 
 
 class SmbusMock:
     def __init__(self):
+        # simulate the Smbus for tests only
         pass
 
 
@@ -20,10 +19,10 @@ sys.modules["fcntl"] = FNCTLMock()
 sys.modules["smbus"] = SmbusMock()
 
 
-class Test_PHI2c(unittest.TestCase):
+class TestPHI2c(unittest.TestCase):
     @patch("GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c")
-    def test_get_device_info(self, Mock):
-        ph_i2c = Mock()
+    def test_get_device_info(self, mock):
+        ph_i2c = mock()
         expected = "SUCCESS: EC, module type: 4 and firmware is: 5"
         ph_i2c.get_device_info.return_value = expected
         info = ph_i2c.get_device_info()
@@ -31,8 +30,8 @@ class Test_PHI2c(unittest.TestCase):
         self.assertEqual(info, expected)
 
     @patch("GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c")
-    def test_get_type(self, Mock):
-        ph_i2c = Mock()
+    def test_get_type(self, mock):
+        ph_i2c = mock()
         expected = 1
         ph_i2c.get_type.return_value = expected
         value = ph_i2c.get_type()
@@ -41,8 +40,8 @@ class Test_PHI2c(unittest.TestCase):
         self.assertEqual(value, expected)
 
     @patch("GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c")
-    def test_get_firmware(self, Mock):
-        ph_i2c = Mock()
+    def test_get_firmware(self, mock):
+        ph_i2c = mock()
         expected = 5
         ph_i2c.get_firmware.return_value = expected
         value = ph_i2c.get_firmware()
@@ -51,8 +50,8 @@ class Test_PHI2c(unittest.TestCase):
         self.assertEqual(value, expected)
 
     @patch("GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c")
-    def test_get_read(self, Mock):
-        ph_i2c = Mock()
+    def test_get_read(self, mock):
+        ph_i2c = mock()
         expected = 6.23
         ph_i2c.get_read.return_value = expected
         value = ph_i2c.get_read()
