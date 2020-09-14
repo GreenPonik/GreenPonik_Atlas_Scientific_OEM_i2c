@@ -252,7 +252,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         /!in micro µs for EC nothing sepcific for pH/!
         """
         if "EC" == self.moduletype:
-            start_register = (self.OEM_EC_REGISTERS["device_calibration_msb"],)
+            start_register = self.OEM_EC_REGISTERS["device_calibration_msb"]
             byte_array = int(round(value * 100)).to_bytes(4, "big")
         elif "PH" == self.moduletype:
             start_register = self.OEM_PH_REGISTERS["device_calibration_msb"]
@@ -297,13 +297,9 @@ class _CommonsI2c(_AtlasOEMI2c):
         @brief Clear calibration data
         """
         if "EC" == self.moduletype:
-            register = (
-                self.OEM_EC_REGISTERS["device_calibration_request"],
-            )
+            register = self.OEM_EC_REGISTERS["device_calibration_request"]
         elif "PH" == self.moduletype:
-            register = (
-                self.OEM_PH_REGISTERS["device_calibration_request"],
-            )
+            register = self.OEM_PH_REGISTERS["device_calibration_request"]
         self.write(register, 0x01)  # send 0x01 to clear calibration data
         time.sleep(
             self.short_timeout
