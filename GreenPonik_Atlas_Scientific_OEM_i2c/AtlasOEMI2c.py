@@ -251,12 +251,14 @@ class _AtlasOEMI2c:
         """
         print(v)
         print(type(v).__name__)
+        print(register)
+        print(type(register).__name__)
         if("int" != type(v).__name__
            and len(v) > 1
            and ("bytearray" == type(v).__name__ or "bytes" == type(v).__name__)
            ):
             self._smbus.write_i2c_block_data(self._address, register, v)
-        elif "int" == type(v).__name__:
+        elif "int" == type(v).__name__ or "byte" == type(v).__name__:
             self._smbus.write_byte_data(self._address, register, v)
         else:
             raise IOError("cannot write this in smbus/i2c: ", v)
