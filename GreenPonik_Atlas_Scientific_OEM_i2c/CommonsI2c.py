@@ -151,12 +151,12 @@ class _CommonsI2c(_AtlasOEMI2c):
         """
         if "EC" == self.moduletype:
             register = self.OEM_EC_REGISTERS["device_calibration_confirm"]
-            """bits = {
-                "dry": 0,
-                "single": 1,
-                "low": 2,
-                "high": 3,
-            }"""
+            """ bits
+                - "dry": 0,
+                - "single": 1,
+                - "low": 2,
+                - "high": 3,
+            """
             binary_calib_status = {
                 0: "nothing",
                 1: "only dry",
@@ -177,11 +177,11 @@ class _CommonsI2c(_AtlasOEMI2c):
             }
         elif "PH" == self.moduletype:
             register = self.OEM_PH_REGISTERS["device_calibration_confirm"]
-            """bits = {
-                "low": 1,
-                "mid": 2,
-                "high": 3,
-            }"""
+            """ bits
+                - "low": 1,
+                - "mid": 2,
+                - "high": 3,
+            """
             binary_calib_status = {
                 0: "nothing",
                 1: "only low",
