@@ -44,7 +44,7 @@ class _CommonsI2c(_AtlasOEMI2c):
             if hex(0x00) == hex(confirm):
                 print("Calibration applied")
             else:
-                raise BaseException("Cannot confirm the operation was correctly executed")
+                raise Exception("Cannot confirm the operation was correctly executed")
 
     # ----- Getters ----- ########
 
