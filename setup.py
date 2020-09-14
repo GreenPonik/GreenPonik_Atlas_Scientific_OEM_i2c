@@ -9,7 +9,7 @@ URL = "https://github.com/GreenPonik/GreenPonik_Atlas_Scientific_OEM_i2c"
 EMAIL = "contact@greenponik.com"
 AUTHOR = "GreenPonik SAS"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.0.3"
+VERSION = "0.0.4"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
