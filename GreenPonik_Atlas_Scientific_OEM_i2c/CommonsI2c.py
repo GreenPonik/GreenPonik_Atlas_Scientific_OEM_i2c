@@ -232,9 +232,9 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param t = float temperature value
         """
         if "EC" == self.moduletype:
-            start_register = self.OEM_EC_REGISTERS["device_temperature_comp_msb"]
+            register = self.OEM_EC_REGISTERS["device_temperature_comp_msb"]
         elif "PH" == self.moduletype:
-            start_register = self.OEM_PH_REGISTERS["device_temperature_comp_msb"]
+            register = self.OEM_PH_REGISTERS["device_temperature_comp_msb"]
         byte_array = int(round(t * 100)).to_bytes(4, "big")
         if self.debug:
             print("Temperature to set: %.2f" % t)
@@ -243,7 +243,7 @@ class _CommonsI2c(_AtlasOEMI2c):
                 byte_array,
             )
         time.sleep(self.short_timeout)
-        self.write(start_register, byte_array)
+        self.write(register, byte_array)
 
     def _set_calibration_registers(self, value):
         """
@@ -252,12 +252,12 @@ class _CommonsI2c(_AtlasOEMI2c):
         /!in micro µs for EC nothing sepcific for pH/!
         """
         if "EC" == self.moduletype:
-            start_register = self.OEM_EC_REGISTERS["device_calibration_msb"]
+            register = self.OEM_EC_REGISTERS["device_calibration_msb"]
             byte_array = int(round(value * 100)).to_bytes(4, "big")
         elif "PH" == self.moduletype:
-            start_register = self.OEM_PH_REGISTERS["device_calibration_msb"]
+            register = self.OEM_PH_REGISTERS["device_calibration_msb"]
             byte_array = int(round(value * 1000)).to_bytes(4, "big")
-        self.write(start_register, byte_array)
+        self.write(register, byte_array)
         if self.debug:
             print("Value to send: %.2f" % value)
             print(
