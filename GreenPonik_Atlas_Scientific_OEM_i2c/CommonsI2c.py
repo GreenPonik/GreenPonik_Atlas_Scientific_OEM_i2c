@@ -98,6 +98,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         @return float the sensor value
         """
         self.set_wakeup_sleep_mode(0x01)  # wake device before read
+        time.sleep(self._long_timeout)
         if "EC" == self.moduletype:
             rawhex = self.read(
                 self.OEM_EC_REGISTERS["device_ec_msb"],

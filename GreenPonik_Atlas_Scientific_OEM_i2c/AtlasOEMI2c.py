@@ -110,24 +110,24 @@ class _AtlasOEMI2c:
         "device_led": 0x05,
         "device_sleep": 0x06,
         "device_new_reading": 0x07,
-        "device_calibration_msb": 0x08,  # 0x08 - 0x0B 4 registers
-        "device_calibration_high": 0x09,  # 0x08 - 0x0B 4 registers
-        "device_calibration_low": 0x0A,  # 0x08 - 0x0B 4 registers
-        "device_calibration_lsb": 0x0B,  # 0x08 - 0x0B 4 registers
+        "device_calibration_msb": 0x08,             # 0x08 - 0x0B 4 registers
+        "device_calibration_high": 0x09,            # 0x08 - 0x0B 4 registers
+        "device_calibration_low": 0x0A,             # 0x08 - 0x0B 4 registers
+        "device_calibration_lsb": 0x0B,             # 0x08 - 0x0B 4 registers
         "device_calibration_request": 0x0C,
         "device_calibration_confirm": 0x0D,
-        "device_temperature_comp_msb": 0x0E,  # 0x0E - 0x11 4 registers
-        "device_temperature_comp_high": 0x0F,  # 0x0E - 0x11 4 registers
-        "device_temperature_comp_low": 0x10,  # 0x0E - 0x11 4 registers
-        "device_temperature_comp_lsb": 0x11,  # 0x0E - 0x11 4 registers
-        "device_temperature_confirm_msb": 0x12,  # 0x12 - 0x15 4 registers
-        "device_temperature_confirm_high": 0x13,  # 0x12 - 0x15 4 registers
-        "device_temperature_confirm_low": 0x14,  # 0x12 - 0x15 4 registers
-        "device_temperature_confirm_lsb": 0x15,  # 0x12 - 0x15 4 registers
-        "device_ph_msb": 0x16,  # 0x16 - 0x19 4 registers
-        "device_ph_high": 0x17,  # 0x16 - 0x19 4 registers
-        "device_ph_low": 0x18,  # 0x16 - 0x19 4 registers
-        "device_ph_lsb": 0x19,  # 0x16 - 0x19 4 registers
+        "device_temperature_comp_msb": 0x0E,        # 0x0E - 0x11 4 registers
+        "device_temperature_comp_high": 0x0F,       # 0x0E - 0x11 4 registers
+        "device_temperature_comp_low": 0x10,        # 0x0E - 0x11 4 registers
+        "device_temperature_comp_lsb": 0x11,        # 0x0E - 0x11 4 registers
+        "device_temperature_confirm_msb": 0x12,     # 0x12 - 0x15 4 registers
+        "device_temperature_confirm_high": 0x13,    # 0x12 - 0x15 4 registers
+        "device_temperature_confirm_low": 0x14,     # 0x12 - 0x15 4 registers
+        "device_temperature_confirm_lsb": 0x15,     # 0x12 - 0x15 4 registers
+        "device_ph_msb": 0x16,                      # 0x16 - 0x19 4 registers
+        "device_ph_high": 0x17,                     # 0x16 - 0x19 4 registers
+        "device_ph_low": 0x18,                      # 0x16 - 0x19 4 registers
+        "device_ph_lsb": 0x19,                      # 0x16 - 0x19 4 registers
     }
 
     ONE_BYTE_READ = 0x01
