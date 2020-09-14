@@ -211,15 +211,13 @@ class _AtlasOEMI2c:
            addr not in self.ADDR_OEM_HEXA
            and addr not in self.ADDR_OEM_DECIMAL
            ):
-            raise BaseException(
+            raise Exception(
                 "You have to give a value to addr argument \
-                take a look on AtlasI2c.ADDR_EZO_HEXA, \
-                AtlasI2c.ADDR_EZO_DECIMAL, \
-                AtlasI2c.ADDR_OEM_HEXA \
+                take a look on AtlasI2c.ADDR_OEM_HEXA \
                 and AtlasI2c.ADDR_OEM_DECIMAL"
             )
         if moduletype not in self.ALLOWED_MODULES_TYPES:
-            raise BaseException(
+            raise NotImplementedError(
                 "sorry i can just interact \
                 with EC or PH moduletype"
             )
@@ -259,7 +257,7 @@ class _AtlasOEMI2c:
         elif "int" == type(v).__name__:
             self._smbus.write_byte_data(self._address, register, v)
         else:
-            raise BaseException("cannot write this in smbus/i2c: ", v)
+            raise IOError("cannot write this in smbus/i2c: ", v)
         if self._debug:
             print("Write %s on register: %s" % (v, hex(register)))
 

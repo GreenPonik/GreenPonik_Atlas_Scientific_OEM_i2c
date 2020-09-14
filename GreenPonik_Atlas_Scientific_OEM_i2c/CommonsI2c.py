@@ -271,7 +271,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param string point => "dry", "single", "low", "mid", "high" only
         """
         if point not in ("dry", "single", "low", "mid", "high"):
-            raise BaseException('missing string point argument, \
+            raise Exception('missing string point argument, \
                 can only be "dry", "single", "low", "mid", "high"')
         if "EC" == self.moduletype:
             points = {"dry": 0x02, "single": 0x03, "low": 0x04, "high": 0x05}
@@ -318,7 +318,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         @param int = new i2c add
         """
         if (addr not in self.ADDR_OEM_HEXA and addr not in self.ADDR_OEM_DECIMAL):
-            raise BaseException(
+            raise Exception(
                 "only decimal address expected, convert hexa by using \
                     AtlasI2c.ADDR_OEM_DECIMAL or AtlasI2c.ADDR_EZO_DECIMAL"
             )
