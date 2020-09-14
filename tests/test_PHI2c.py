@@ -59,6 +59,16 @@ class TestPHI2c(unittest.TestCase):
         self.assertTrue(type(value).__name__, "float")
         self.assertEqual(value, expected)
 
+    @patch("GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c")
+    def test_set_calibration_clear(self, mock):
+        ec_i2c = mock()
+        expected = 0x00
+        ec_i2c.set_calibration_clear.return_value = expected
+        conf = ec_i2c.set_calibration_clear()
+        self.assertIsNotNone(conf)
+        self.assertTrue(type(conf).__name__, "int")
+        self.assertEqual(conf, expected)
+
 
 if __name__ == '__main__':
     unittest.main()

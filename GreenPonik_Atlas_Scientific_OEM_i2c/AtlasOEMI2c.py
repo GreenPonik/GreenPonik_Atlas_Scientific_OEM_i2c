@@ -249,6 +249,8 @@ class _AtlasOEMI2c:
         """
         @brief
         """
+        print(v)
+        print(type(v).__name__)
         if("int" != type(v).__name__
            and len(v) > 1
            and ("bytearray" == type(v).__name__ or "bytes" == type(v).__name__)
