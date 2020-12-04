@@ -20,7 +20,7 @@ from Adafruit_PureIO.smbus import SMBus
 
 
 class _AtlasOEMI2c:
-
+    # TODO add compatibility to use it with the with statement
     ALLOWED_MODULES_TYPES = {
         "EC",
         "PH",
@@ -230,9 +230,11 @@ class _AtlasOEMI2c:
         self._long_timeout = self.DEFAULT_LONG_TIMEOUT
         self._smbus = SMBus(self._bus_number)
 
-    def read(self, register, num_of_bytes=1):
+    def read(self, register: int, num_of_bytes=1):
         """
-        @brief
+        @brief read data from i2c bus
+        @param register > int i2c register to read
+        @param num_of_byte > int number of bytes to read started from the register
         """
         if num_of_bytes > 1:
             raw = self._smbus.read_i2c_block_data(self._address, register, num_of_bytes)
@@ -246,7 +248,9 @@ class _AtlasOEMI2c:
 
     def write(self, register: int, v):
         """
-        @brief
+        @brief write data through i2c bus
+        @param register > int i2c register to read
+        @param v > int/bytearray to write through i2c
         """
         if (
             "int" != type(v).__name__
