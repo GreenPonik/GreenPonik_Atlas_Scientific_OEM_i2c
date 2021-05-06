@@ -249,11 +249,12 @@ class _CommonsI2c(_AtlasOEMI2c):
         self.write(register, byte_array)
         self.set_wakeup_sleep_mode(0x00)  # sleep device after set temperature
 
-    def _set_calibration_registers(self, value: float):
+    def _set_calibration_registers(self, value):
         """
         @brief calibration registers
         do not use alone because calibration is apply by using set_calibration_apply
-        /!in micro µs for EC nothing sepcific for pH/!
+        /!in float micro siemens µS for EC/!
+        /! in float for pH/!
         """
         if "EC" == self.moduletype:
             register = self.OEM_EC_REGISTERS["device_calibration_msb"]
@@ -270,10 +271,10 @@ class _CommonsI2c(_AtlasOEMI2c):
                 byte_array,
             )
 
-    def set_calibration_apply(self, value: float, point=""):
+    def set_calibration_apply(self, value, point=""):
         """
         @brief apply the calibration
-        @param float value => solution calibration value e.g. 4.02
+        @param float value => solution calibration value converted in float. EC waiting for µS e.g. 1.413 = > 1413.0
         @param string point => "dry", "single", "low", "mid", "high" only
         """
         if point not in ("dry", "single", "low", "mid", "high"):
