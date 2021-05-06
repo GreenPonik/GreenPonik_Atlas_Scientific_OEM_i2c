@@ -35,6 +35,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         if self.debug:
             print("Byte Array to decode: ", byte_array)
             print("Byte Array decoded to hexa string: %s" % hexstr)
+            print("float from hexa: %.3f" % float_from_hexa)
         return converted
 
     def _check_calibration_confirm(self, confirm):
