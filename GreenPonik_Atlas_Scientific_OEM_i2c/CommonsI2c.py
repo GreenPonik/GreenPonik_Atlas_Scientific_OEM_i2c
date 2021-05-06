@@ -231,6 +231,8 @@ class _CommonsI2c(_AtlasOEMI2c):
         @brief Set the compensation temperature
         @param t = float temperature value
         """
+        self.set_wakeup_sleep_mode(0x01)  # wake device before set temperature
+        time.sleep(self._long_timeout)
         if "EC" == self.moduletype:
             register = self.OEM_EC_REGISTERS["device_temperature_comp_msb"]
         elif "PH" == self.moduletype:
@@ -244,8 +246,9 @@ class _CommonsI2c(_AtlasOEMI2c):
             )
         time.sleep(self.short_timeout)
         self.write(register, byte_array)
+        self.set_wakeup_sleep_mode(0x00)  # sleep device after set temperature
 
-    def _set_calibration_registers(self, value):
+    def _set_calibration_registers(self, value: float):
         """
         @brief calibration registers
         do not use alone because calibration is apply by using set_calibration_apply
@@ -253,6 +256,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         """
         if "EC" == self.moduletype:
             register = self.OEM_EC_REGISTERS["device_calibration_msb"]
+            # ec calibration wait for µSiemens
             byte_array = int(round(value * 100)).to_bytes(4, "big")
         elif "PH" == self.moduletype:
             register = self.OEM_PH_REGISTERS["device_calibration_msb"]
@@ -265,7 +269,7 @@ class _CommonsI2c(_AtlasOEMI2c):
                 byte_array,
             )
 
-    def set_calibration_apply(self, value, point=""):
+    def set_calibration_apply(self, value: float, point=""):
         """
         @brief apply the calibration
         @param float value => solution calibration value e.g. 4.02
