@@ -141,7 +141,7 @@ class _CommonsI2c(_AtlasOEMI2c):
             )
         value = self._convert_raw_hex_to_float(rawhex) / 100
         if self.debug:
-            print("%s Compensend Temperature: %s°c" % (self.moduletype, value))
+            print("%s compensation Temperature: %s°c" % (self.moduletype, value))
         return value
 
     def get_calibration(self):
