@@ -36,4 +36,13 @@ class ECI2c(_CommonsI2c):
         """
         @brief Set the ec probe k
         """
-        raise NotImplementedError('not implemented yet')
+        # raise NotImplementedError('not implemented yet')
+        register = self.OEM_EC_REGISTERS["device_probe_type_msb"]
+
+        byte_array = int(k * 100).to_bytes(2, "big")
+        self.write(register, byte_array)
+        if self.debug:
+            print("set probe k to: %.2f" % k)
+            print(
+                "sent converted k to bytes: " % byte_array,
+            )

@@ -94,6 +94,17 @@ class _CommonsI2c(_AtlasOEMI2c):
             print("Firmware type is: %s" % firmware)
         return firmware
 
+    def get_new_read_available(self):
+        """
+        @brief New Read is available
+        @return int 1 if new read available, 0 if not
+        """
+        is_new_read = self.read(
+            self.OEM_EC_REGISTERS["device_new_reading"],
+            self.ONE_BYTE_READ,
+        )
+        return is_new_read
+
     def get_read(self):
         """
         @brief Read sensor value
@@ -354,3 +365,13 @@ class _CommonsI2c(_AtlasOEMI2c):
                 "Device is now:  %s"
                 % ("wakeup" if hex(0x01) == hex(action) else "sleep")
             )
+
+    def set_ack_new_read_available(self):
+        """
+        @brief Ack new Read available
+        """
+        register = self.OEM_EC_REGISTERS["device_new_reading"]
+        ack = 0x00
+        self.write(register, ack)
+        if self.debug:
+            print("ack new reading available register %s to  %s" % (register, ack))
