@@ -110,7 +110,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         @brief Read sensor value
         @return float the sensor value
         """
-        self.set_wakeup_sleep_mode(0x01)  # wake device before read
+        # self.set_wakeup_sleep_mode(0x01)  # wake device before read
         time.sleep(self._long_timeout)
         if "EC" == self.moduletype:
             rawhex = self.read(
@@ -133,7 +133,7 @@ class _CommonsI2c(_AtlasOEMI2c):
                     "µs" if "EC" == self.moduletype else "",
                 )
             )
-        self.set_wakeup_sleep_mode(0x00)  # sleep device after read
+        # self.set_wakeup_sleep_mode(0x00)  # sleep device after read
         return value
 
     def get_temperature(self):
