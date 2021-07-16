@@ -169,24 +169,7 @@ class _CommonsI2c(_AtlasOEMI2c):
                 - "low": 2,
                 - "high": 3,
             """
-            binary_calib_status = {
-                0: "nothing",
-                1: "only dry",
-                2: "only single",
-                3: "dry and single",
-                4: "only low",
-                5: "dry and low",
-                6: "single and low",
-                7: "dry, single and low",
-                8: "only high",
-                9: "dry and high",
-                10: "single and high",
-                11: "dry, single and high",
-                12: "low and high",
-                13: "dry, low and high",
-                14: "single, low and high",
-                15: "all",
-            }
+            binary_calib_status = self.EC_BINARY_CALIB_STATUS
         elif "PH" == self.moduletype:
             register = self.OEM_PH_REGISTERS["device_calibration_confirm"]
             """ bits
@@ -194,16 +177,7 @@ class _CommonsI2c(_AtlasOEMI2c):
                 - "mid": 2,
                 - "high": 3,
             """
-            binary_calib_status = {
-                0: "nothing",
-                1: "only low",
-                2: "only mid",
-                3: "low and mid",
-                4: "only high",
-                5: "low and high",
-                6: "mid and high",
-                7: "all",
-            }
+            binary_calib_status = self.PH_BINARY_CALIB_STATUS
         r = self.read(register)
         if self.debug:
             print("Binary result from OEM", r)

@@ -144,6 +144,36 @@ class _AtlasOEMI2c:
     # timeout for regular commands
     DEFAULT_SHORT_TIMEOUT = 0.3
 
+    EC_BINARY_CALIB_STATUS = {
+        0: "nothing",
+        1: "only dry",
+        2: "only single",
+        3: "dry and single",
+        4: "only low",
+        5: "dry and low",
+        6: "single and low",
+        7: "dry, single and low",
+        8: "only high",
+        9: "dry and high",
+        10: "single and high",
+        11: "dry, single and high",
+        12: "low and high",
+        13: "dry, low and high",
+        14: "single, low and high",
+        15: "all",
+    }
+
+    PH_BINARY_CALIB_STATUS = {
+        0: "nothing",
+        1: "only low",
+        2: "only mid",
+        3: "low and mid",
+        4: "only high",
+        5: "low and high",
+        6: "mid and high",
+        7: "all",
+    }
+
     @property
     def debug(self):
         return self._debug
