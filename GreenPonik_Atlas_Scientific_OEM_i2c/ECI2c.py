@@ -28,7 +28,13 @@ class ECI2c(_CommonsI2c):
         """
         @brief Get current ec probe k
         """
-        raise NotImplementedError('not implemented yet')
+        # raise NotImplementedError('not implemented yet')
+        register = self.OEM_EC_REGISTERS["device_probe_type_msb"]
+        rawhex = self.read(register, self.TWO_BYTE_READ)
+        probe_type = self._convert_raw_hex_to_float(rawhex) / 100
+        if self.debug:
+            print("probe type is :  %s" % probe_type)
+        return probe_type
 
     # ----- Setters EC methods ----- ######
 
