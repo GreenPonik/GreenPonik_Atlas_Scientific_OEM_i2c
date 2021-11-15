@@ -38,6 +38,7 @@ jobs:
 
       - name: "Build Sphinx Doc"
         run: |
+          mkdir docs/
           sphinx-apidoc -o docsource/ docs/
           sphinx-build -b html docsource docs/
           touch docs/.nojekyll
