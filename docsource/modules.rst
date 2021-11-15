@@ -1,5 +1,5 @@
-GreenPonik_Atlas_Scientific_OEM_i2c
-========================
+docs
+====
 
 .. toctree::
    :maxdepth: 4

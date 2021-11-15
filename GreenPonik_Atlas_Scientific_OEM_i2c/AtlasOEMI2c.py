@@ -230,7 +230,7 @@ class _AtlasOEMI2c:
     def short_timeout(self):
         """short delay to wait
 
-        :return: [description]
+        :return: short delay in milliseconds
         :rtype: int
         """
         return self._short_timeout
@@ -239,7 +239,7 @@ class _AtlasOEMI2c:
     def short_timeout(self, timeout: int) -> None:
         """short delay to wait
 
-        :param timeout: [description]
+        :param timeout: short delay in milliseconds
         :type timeout: int
         """
         self._short_timeout = timeout
@@ -248,7 +248,7 @@ class _AtlasOEMI2c:
     def long_timeout(self):
         """long delay to wait
 
-        :return: [description]
+        :return: long delay in milliseconds
         :rtype: int
         """
         return self._long_timeout
@@ -257,16 +257,16 @@ class _AtlasOEMI2c:
     def long_timeout(self, timeout: int) -> None:
         """long delay to wait
 
-        :param timeout: [description]
+        :param timeout: long delay in milliseconds
         :type timeout: int
         """
         self._long_timeout = timeout
 
     @property
     def name(self):
-        """[summary]
+        """name of OEM circuit
 
-        :return: [description]
+        :return: name of OEM circuit
         :rtype: string
         """
         return self._name
@@ -275,7 +275,7 @@ class _AtlasOEMI2c:
     def name(self, name: str) -> None:
         """name of OEM circuit
 
-        :param name: [description]
+        :param name: name of OEM circuit
         :type name: string
         """
         self._name = name
@@ -284,8 +284,8 @@ class _AtlasOEMI2c:
     def moduletype(self):
         """getter module type
 
-        :return: [description]
-        :rtype: [type]
+        :return: get module type
+        :rtype: string
         """
         return self._module
 
@@ -293,8 +293,8 @@ class _AtlasOEMI2c:
     def moduletype(self, m: str) -> None:
         """module type
 
-        :param m: [description]
-        :type m: [type]
+        :param m: set the module type
+        :type m: string
         """
         assert(m.upper() in ALLOWED_MODULES_TYPES)
         self._module = m.upper()
