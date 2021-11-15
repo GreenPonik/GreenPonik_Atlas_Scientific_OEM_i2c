@@ -20,17 +20,14 @@ class _AtlasOEMI2c:
         "EC",
         "PH",
     }
-    """@brief
-    Array key=>value for each OEM sensors i2c hexa addresses
-    """
     ADDR_OEM_HEXA = {
         0x64,  # EC
         0x65,  # PH
         0x66,  # ORP
         0x67,  # DO
     }
-    """@brief
-    Array value of each OEM sensors decimal addresses
+    """
+    Array key=>value for each OEM sensors i2c hexa addresses
     """
     ADDR_OEM_DECIMAL = {
         100,  # EC
@@ -38,8 +35,8 @@ class _AtlasOEMI2c:
         102,  # ORP
         103,  # DO
     }
-    """@brief
-    Array key=>value for each OEM sensors name i2c hexa addresses
+    """
+    Array value of each OEM sensors decimal addresses
     """
     ADDR_OEM_TXT_TO_HEXA = {
         "EC": 0x64,
@@ -47,8 +44,8 @@ class _AtlasOEMI2c:
         "ORP": 0x66,
         "DO": 0x67,
     }
-    """@brief
-    Array key=>value for each OEM sensors i2c hexa to decimal addresses
+    """
+    Array key=>value for each OEM sensors name i2c hexa addresses
     """
     ADDR_OEM_HEXA_TO_DECIMAL = {
         0x64: 100,  # DO
@@ -56,6 +53,9 @@ class _AtlasOEMI2c:
         0x66: 102,  # PH
         0x67: 103,  # EC
     }
+    """
+    Array key=>value for each OEM sensors i2c hexa to decimal addresses
+    """
 
     OEM_EC_REGISTERS = {
         "device_type": 0x00,
@@ -171,66 +171,139 @@ class _AtlasOEMI2c:
 
     @property
     def debug(self):
+        """debug property
+
+        :getter: debug flag
+        :setter: change debug flag
+
+        Returns:
+            bool: `True` if the debug mode is ON, `False` if not
+        """
         return self._debug
 
     @debug.setter
-    def debug(self, d):
+    def debug(self, d: bool) -> None:
+        """setter debug flag
+
+        Args:
+            d (bool): `True` to set debug mode ON, `False` to set debug mode OFF
+        """
         self._debug = d
 
     @property
     def bus_number(self):
+        """debug property
+
+        :return: `True` if the debug mode is ON, `False` if not
+        :rtype: int
+        """
         return self._bus_number
 
     @bus_number.setter
-    def bus_number(self, bus_number):
+    def bus_number(self, bus_number: int) -> None:
+        """debug property
+
+        :param bus_number: `True` to set debug mode ON, `False` to set debug mode OFF
+        :type bus_number: int
+        """
         self._bus_number = bus_number
 
     @property
     def address(self):
+        """getter i2c address of the device
+
+        :return: i2c address of the device on the i2c bus
+        :rtype: int
+        """
         return self._address
 
     @address.setter
-    def address(self, address):
+    def address(self, address: int) -> None:
+        """setter i2c address of the device
+
+        :param address: i2c address of the device on the i2c bus
+        :type address: int
+        """
         self._address = address
 
     @property
     def short_timeout(self):
+        """short delay to wait
+
+        :return: [description]
+        :rtype: int
+        """
         return self._short_timeout
 
     @short_timeout.setter
-    def short_timeout(self, timeout):
+    def short_timeout(self, timeout: int) -> None:
+        """short delay to wait
+
+        :param timeout: [description]
+        :type timeout: int
+        """
         self._short_timeout = timeout
 
     @property
     def long_timeout(self):
+        """long delay to wait
+
+        :return: [description]
+        :rtype: int
+        """
         return self._long_timeout
 
     @long_timeout.setter
-    def long_timeout(self, timeout):
+    def long_timeout(self, timeout: int) -> None:
+        """long delay to wait
+
+        :param timeout: [description]
+        :type timeout: int
+        """
         self._long_timeout = timeout
 
     @property
     def name(self):
+        """[summary]
+
+        :return: [description]
+        :rtype: string
+        """
         return self._name
 
     @name.setter
-    def name(self, name):
+    def name(self, name: str) -> None:
+        """name of OEM circuit
+
+        :param name: [description]
+        :type name: string
+        """
         self._name = name
 
     @property
     def moduletype(self):
+        """getter module type
+
+        :return: [description]
+        :rtype: [type]
+        """
         return self._module
 
     @moduletype.setter
-    def moduletype(self, m):
+    def moduletype(self, m: str) -> None:
+        """module type
+
+        :param m: [description]
+        :type m: [type]
+        """
+        assert(m.upper() in ALLOWED_MODULES_TYPES)
         self._module = m.upper()
 
     def __init__(self, bus=DEFAULT_BUS, addr=None, moduletype=""):
-        """
-        @brief create instance of AtlasI2c class
-        @param int => bus i2c bus number
-        @param int/hexa => device i2c address
-        @param string => device module type
+        """create instance of AtlasI2c class
+        :param bus: int => bus i2c bus number
+        :param addr: int/hexa => device i2c address
+        :param moduletype: string => device module type
         """
         if None is addr or (
             addr not in self.ADDR_OEM_HEXA and addr not in self.ADDR_OEM_DECIMAL
@@ -245,7 +318,6 @@ class _AtlasOEMI2c:
                 "sorry i can just interact \
                 with EC or PH moduletype"
             )
-        # private properties
         self._debug = False
         self._bus_number = bus
         self._address = addr
@@ -255,11 +327,12 @@ class _AtlasOEMI2c:
         self._long_timeout = self.DEFAULT_LONG_TIMEOUT
         self._smbus = SMBus(self._bus_number)
 
-    def read(self, register: int, num_of_bytes=1):
-        """
-        @brief read data from i2c bus
-        @param register > int i2c register to read
-        @param num_of_byte > int number of bytes to read started from the register
+    def read(self, register: int, num_of_bytes=1) -> bytes:
+        """read data from i2c bus
+        :param register > int i2c register to read
+        :param num_of_byte > int number of bytes to read started from the register
+        :return: raw value from i2c bus
+        :rtype: bytes
         """
         if num_of_bytes > 1:
             raw = self._smbus.read_i2c_block_data(self._address, register, num_of_bytes)
@@ -272,10 +345,9 @@ class _AtlasOEMI2c:
         return raw
 
     def write(self, register: int, v):
-        """
-        @brief write data through i2c bus
-        @param register > int i2c register to read
-        @param v > int/bytearray to write through i2c
+        """write data through i2c bus
+        :param register > int i2c register to read
+        :param v > int/bytearray to write through i2c
         """
         if (
             "int" != type(v).__name__
@@ -290,9 +362,10 @@ class _AtlasOEMI2c:
         if self._debug:
             print("Write %s on register: %s" % (v, hex(register)))
 
-    def list_i2c_devices(self):
-        """
-        @brief save the current address so we can restore it after
+    def list_i2c_devices(self) -> list:
+        """save the current address so we can restore it after
+        :return: list àf i2c addresses on the bus
+        :rtype: list
         """
         with I2C(self._bus_number) as i2c:
             scan = i2c.scan()
@@ -301,6 +374,8 @@ class _AtlasOEMI2c:
             return scan
 
     def print_all_registers_values(self):
+        """Print all register values
+        """
         if "EC" == self._module:
             registers = self.OEM_EC_REGISTERS
         elif "PH" == self._module:

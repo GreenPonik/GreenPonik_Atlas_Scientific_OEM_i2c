@@ -16,12 +16,12 @@ from GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c import _AtlasOEMI2c
 
 class _CommonsI2c(_AtlasOEMI2c):
     """
-    @brief commons methods for EC and PH OEM circuits
+    commons methods for EC and PH OEM circuits
     """
 
     def _convert_raw_hex_to_float(self, byte_array):
         """
-        @brief convert bytearray response to float result
+        convert bytearray response to float result
         return float converted value
         """
         hexstr = byte_array.hex()
@@ -35,7 +35,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def _check_calibration_confirm(self, confirm):
         """
-        @brief check the response of calibration confirm register
+        check the response of calibration confirm register
         """
         if self.debug:
             if hex(0x00) == hex(confirm):
@@ -47,7 +47,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_device_info(self):
         """
-        @brief Get device information
+        Get device information
         @return string module type, firmware version
         """
         if "EC" == self.moduletype or "PH" == self.moduletype:
@@ -63,7 +63,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_type(self):
         """
-        @brief Read sensor type
+        Read sensor type
         @return int the sensor type (1=EC, 4=PH)
         """
         if "EC" == self.moduletype or "PH" == self.moduletype:
@@ -77,7 +77,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_firmware(self):
         """
-        @brief Read sensor firmware
+        Read sensor firmware
         @return int the firmware revision
         """
         if "EC" == self.moduletype or "PH" == self.moduletype:
@@ -91,7 +91,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_new_read_available(self):
         """
-        @brief New Read is available
+        New Read is available
         @return int 1 if new read available, 0 if not
         """
         is_new_read = self.read(
@@ -102,7 +102,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_read(self):
         """
-        @brief Read sensor value
+        Read sensor value
         @return float the sensor value
         """
         # self.set_wakeup_sleep_mode(0x01)  # wake device before read
@@ -133,7 +133,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_temperature(self):
         """
-        @brief Get current compensation temperature
+        Get current compensation temperature
         @return float temperature value
         """
         if "EC" == self.moduletype:
@@ -153,7 +153,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_calibration(self):
         """
-        @brief Get current calibrations data
+        Get current calibrations data
         @return string with current points calibrated
         """
         if "EC" == self.moduletype:
@@ -181,7 +181,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_led(self):
         """
-        @brief Get led state
+        Get led state
         register is the same for EC and PH OEM circuit
         @return byte/int 0x00/0 = OFF / 0x01/1 = ON
         """
@@ -193,7 +193,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def get_wakeup_sleep_mode(self):
         """
-        @brief get Active or Hibernate device mode
+        get Active or Hibernate device mode
         register is the same for EC and PH OEM circuit
         @return byte/int 0x01/1 = WakeUp / 0x00/0 = Hibernate
         """
@@ -209,7 +209,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def set_temperature(self, t=25.0):
         """
-        @brief Set the compensation temperature
+        Set the compensation temperature
         @param t = float temperature value
         """
         self.set_wakeup_sleep_mode(0x01)  # wake device before set temperature
@@ -231,7 +231,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def _set_calibration_registers(self, value):
         """
-        @brief calibration registers
+        calibration registers
         do not use alone because calibration is apply by using set_calibration_apply
         /!in float micro siemens µS for EC/!
         /! in float for pH/!
@@ -253,7 +253,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def set_calibration_apply(self, value, point=""):
         """
-        @brief apply the calibration
+        apply the calibration
         @param float value => solution calibration value converted in float. EC waiting for µS e.g. 1.413 = > 1413.0
         @param string point => "dry", "single", "low", "mid", "high" only
         """
@@ -278,7 +278,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def set_calibration_clear(self):
         """
-        @brief Clear calibration data
+        Clear calibration data
         """
         if "EC" == self.moduletype:
             register = self.OEM_EC_REGISTERS["device_calibration_request"]
@@ -292,7 +292,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def set_i2c_addr(self, addr):
         """
-        @brief Change the device i2c address
+        Change the device i2c address
         @param device = AltasI2c instance
         @param int = new i2c add
         """
@@ -310,7 +310,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def set_led(self, state=0x01):
         """
-        @brief Change Led state
+        Change Led state
         @param byte/int state => 0x01/1 = On / 0x00/0 = Off
         """
         register = self.OEM_EC_REGISTERS["device_led"]
@@ -323,7 +323,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def set_wakeup_sleep_mode(self, action=0x01):
         """
-        @brief change device mode to Active or Hibernate
+        change device mode to Active or Hibernate
         register is the same for EC and PH OEM circuit
         @param byte/int action => 0x01/1 = WakeUp / 0x00/0 = Hibernate
         """
@@ -337,7 +337,7 @@ class _CommonsI2c(_AtlasOEMI2c):
 
     def set_ack_new_read_available(self):
         """
-        @brief Ack new Read available
+        Ack new Read available
         """
         register = self.OEM_EC_REGISTERS["device_new_reading"]
         ack = 0x00
