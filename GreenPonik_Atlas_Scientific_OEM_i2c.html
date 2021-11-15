@@ -122,13 +122,13 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#greenponik-atlas-scientific-oem-i2c-atlasoemi2c-module" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c module</a></li>
+                  <li class="toctree-l2"><a href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c module</a></li>
                 
-                  <li class="toctree-l2"><a href="#greenponik-atlas-scientific-oem-i2c-commonsi2c-module" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c module</a></li>
+                  <li class="toctree-l2"><a href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c module</a></li>
                 
-                  <li class="toctree-l2"><a href="#greenponik-atlas-scientific-oem-i2c-eci2c-module" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c module</a></li>
+                  <li class="toctree-l2"><a href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c module</a></li>
                 
-                  <li class="toctree-l2"><a href="#greenponik-atlas-scientific-oem-i2c-phi2c-module" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c module</a></li>
+                  <li class="toctree-l2"><a href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c" class="reference internal">GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c module</a></li>
                 
               </ul>
             
@@ -166,17 +166,473 @@
             
   <section id="greenponik-atlas-scientific-oem-i2c-package">
 <h1>GreenPonik_Atlas_Scientific_OEM_i2c package<a class="headerlink" href="#greenponik-atlas-scientific-oem-i2c-package" title="Permalink to this headline">¶</a></h1>
-<section id="greenponik-atlas-scientific-oem-i2c-atlasoemi2c-module">
-<h2>GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c module<a class="headerlink" href="#greenponik-atlas-scientific-oem-i2c-atlasoemi2c-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c">
+<span id="greenponik-atlas-scientific-oem-i2c-atlasoemi2c-module"></span><h2>GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c module<a class="headerlink" href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c" title="Permalink to this headline">¶</a></h2>
+<section id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>Class to communicate with Atlas Scientific OEM sensors in I2C mode.
+Atlas Scientific i2c by GreenPonik
+Source code is based on Atlas Scientific documentations:</p>
+<p><a class="reference external" href="https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf">https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf</a></p>
+<p><a class="reference external" href="https://atlas-scientific.com/files/oem_pH_datasheet.pdf">https://atlas-scientific.com/files/oem_pH_datasheet.pdf</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c.</span></span><span class="sig-name descname"><span class="pre">_AtlasOEMI2c</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moduletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_DECIMAL">
+<span class="sig-name descname"><span class="pre">ADDR_OEM_DECIMAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{100,</span> <span class="pre">101,</span> <span class="pre">102,</span> <span class="pre">103}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_DECIMAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array value of each OEM sensors decimal addresses</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_HEXA">
+<span class="sig-name descname"><span class="pre">ADDR_OEM_HEXA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{100,</span> <span class="pre">101,</span> <span class="pre">102,</span> <span class="pre">103}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_HEXA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array key=&gt;value for each OEM sensors i2c hexa addresses</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_HEXA_TO_DECIMAL">
+<span class="sig-name descname"><span class="pre">ADDR_OEM_HEXA_TO_DECIMAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{100:</span> <span class="pre">100,</span> <span class="pre">101:</span> <span class="pre">101,</span> <span class="pre">102:</span> <span class="pre">102,</span> <span class="pre">103:</span> <span class="pre">103}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_HEXA_TO_DECIMAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array key=&gt;value for each OEM sensors i2c hexa to decimal addresses</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_TXT_TO_HEXA">
+<span class="sig-name descname"><span class="pre">ADDR_OEM_TXT_TO_HEXA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DO':</span> <span class="pre">103,</span> <span class="pre">'EC':</span> <span class="pre">100,</span> <span class="pre">'ORP':</span> <span class="pre">102,</span> <span class="pre">'PH':</span> <span class="pre">101}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ADDR_OEM_TXT_TO_HEXA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array key=&gt;value for each OEM sensors name i2c hexa addresses</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ALLOWED_MODULES_TYPES">
+<span class="sig-name descname"><span class="pre">ALLOWED_MODULES_TYPES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'EC',</span> <span class="pre">'PH'}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ALLOWED_MODULES_TYPES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.DEFAULT_BUS">
+<span class="sig-name descname"><span class="pre">DEFAULT_BUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.DEFAULT_BUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.DEFAULT_LONG_TIMEOUT">
+<span class="sig-name descname"><span class="pre">DEFAULT_LONG_TIMEOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.5</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.DEFAULT_LONG_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.DEFAULT_SHORT_TIMEOUT">
+<span class="sig-name descname"><span class="pre">DEFAULT_SHORT_TIMEOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.3</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.DEFAULT_SHORT_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.EC_BINARY_CALIB_STATUS">
+<span class="sig-name descname"><span class="pre">EC_BINARY_CALIB_STATUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{0:</span> <span class="pre">'nothing',</span> <span class="pre">1:</span> <span class="pre">'only</span> <span class="pre">dry',</span> <span class="pre">2:</span> <span class="pre">'only</span> <span class="pre">single',</span> <span class="pre">3:</span> <span class="pre">'dry</span> <span class="pre">and</span> <span class="pre">single',</span> <span class="pre">4:</span> <span class="pre">'only</span> <span class="pre">low',</span> <span class="pre">5:</span> <span class="pre">'dry</span> <span class="pre">and</span> <span class="pre">low',</span> <span class="pre">6:</span> <span class="pre">'single</span> <span class="pre">and</span> <span class="pre">low',</span> <span class="pre">7:</span> <span class="pre">'dry,</span> <span class="pre">single</span> <span class="pre">and</span> <span class="pre">low',</span> <span class="pre">8:</span> <span class="pre">'only</span> <span class="pre">high',</span> <span class="pre">9:</span> <span class="pre">'dry</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">10:</span> <span class="pre">'single</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">11:</span> <span class="pre">'dry,</span> <span class="pre">single</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">12:</span> <span class="pre">'low</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">13:</span> <span class="pre">'dry,</span> <span class="pre">low</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">14:</span> <span class="pre">'single,</span> <span class="pre">low</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">15:</span> <span class="pre">'all'}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.EC_BINARY_CALIB_STATUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.FOUR_BYTE_READ">
+<span class="sig-name descname"><span class="pre">FOUR_BYTE_READ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.FOUR_BYTE_READ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.OEM_EC_REGISTERS">
+<span class="sig-name descname"><span class="pre">OEM_EC_REGISTERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'device_addr':</span> <span class="pre">3,</span> <span class="pre">'device_addr_lock':</span> <span class="pre">2,</span> <span class="pre">'device_calibration_confirm':</span> <span class="pre">15,</span> <span class="pre">'device_calibration_high':</span> <span class="pre">11,</span> <span class="pre">'device_calibration_low':</span> <span class="pre">12,</span> <span class="pre">'device_calibration_lsb':</span> <span class="pre">13,</span> <span class="pre">'device_calibration_msb':</span> <span class="pre">10,</span> <span class="pre">'device_calibration_request':</span> <span class="pre">14,</span> <span class="pre">'device_ec_high':</span> <span class="pre">25,</span> <span class="pre">'device_ec_low':</span> <span class="pre">32,</span> <span class="pre">'device_ec_lsb':</span> <span class="pre">33,</span> <span class="pre">'device_ec_msb':</span> <span class="pre">24,</span> <span class="pre">'device_firmware':</span> <span class="pre">1,</span> <span class="pre">'device_intr':</span> <span class="pre">4,</span> <span class="pre">'device_led':</span> <span class="pre">5,</span> <span class="pre">'device_new_reading':</span> <span class="pre">7,</span> <span class="pre">'device_probe_type_lsb':</span> <span class="pre">9,</span> <span class="pre">'device_probe_type_msb':</span> <span class="pre">8,</span> <span class="pre">'device_salinity_high':</span> <span class="pre">33,</span> <span class="pre">'device_salinity_low':</span> <span class="pre">34,</span> <span class="pre">'device_salinity_lsb':</span> <span class="pre">35,</span> <span class="pre">'device_salinity_msb':</span> <span class="pre">32,</span> <span class="pre">'device_sleep':</span> <span class="pre">6,</span> <span class="pre">'device_tds_high':</span> <span class="pre">29,</span> <span class="pre">'device_tds_low':</span> <span class="pre">30,</span> <span class="pre">'device_tds_lsb':</span> <span class="pre">31,</span> <span class="pre">'device_tds_msb':</span> <span class="pre">28,</span> <span class="pre">'device_temperature_comp_high':</span> <span class="pre">17,</span> <span class="pre">'device_temperature_comp_low':</span> <span class="pre">18,</span> <span class="pre">'device_temperature_comp_lsb':</span> <span class="pre">19,</span> <span class="pre">'device_temperature_comp_msb':</span> <span class="pre">16,</span> <span class="pre">'device_temperature_confirm_high':</span> <span class="pre">21,</span> <span class="pre">'device_temperature_confirm_low':</span> <span class="pre">22,</span> <span class="pre">'device_temperature_confirm_lsb':</span> <span class="pre">23,</span> <span class="pre">'device_temperature_confirm_msb':</span> <span class="pre">20,</span> <span class="pre">'device_type':</span> <span class="pre">0}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.OEM_EC_REGISTERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.OEM_PH_REGISTERS">
+<span class="sig-name descname"><span class="pre">OEM_PH_REGISTERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'device_addr':</span> <span class="pre">3,</span> <span class="pre">'device_addr_lock':</span> <span class="pre">2,</span> <span class="pre">'device_calibration_confirm':</span> <span class="pre">13,</span> <span class="pre">'device_calibration_high':</span> <span class="pre">9,</span> <span class="pre">'device_calibration_low':</span> <span class="pre">10,</span> <span class="pre">'device_calibration_lsb':</span> <span class="pre">11,</span> <span class="pre">'device_calibration_msb':</span> <span class="pre">8,</span> <span class="pre">'device_calibration_request':</span> <span class="pre">12,</span> <span class="pre">'device_firmware':</span> <span class="pre">1,</span> <span class="pre">'device_intr':</span> <span class="pre">4,</span> <span class="pre">'device_led':</span> <span class="pre">5,</span> <span class="pre">'device_new_reading':</span> <span class="pre">7,</span> <span class="pre">'device_ph_high':</span> <span class="pre">23,</span> <span class="pre">'device_ph_low':</span> <span class="pre">24,</span> <span class="pre">'device_ph_lsb':</span> <span class="pre">25,</span> <span class="pre">'device_ph_msb':</span> <span class="pre">22,</span> <span class="pre">'device_sleep':</span> <span class="pre">6,</span> <span class="pre">'device_temperature_comp_high':</span> <span class="pre">15,</span> <span class="pre">'device_temperature_comp_low':</span> <span class="pre">16,</span> <span class="pre">'device_temperature_comp_lsb':</span> <span class="pre">17,</span> <span class="pre">'device_temperature_comp_msb':</span> <span class="pre">14,</span> <span class="pre">'device_temperature_confirm_high':</span> <span class="pre">19,</span> <span class="pre">'device_temperature_confirm_low':</span> <span class="pre">20,</span> <span class="pre">'device_temperature_confirm_lsb':</span> <span class="pre">21,</span> <span class="pre">'device_temperature_confirm_msb':</span> <span class="pre">18,</span> <span class="pre">'device_type':</span> <span class="pre">0}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.OEM_PH_REGISTERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ONE_BYTE_READ">
+<span class="sig-name descname"><span class="pre">ONE_BYTE_READ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.ONE_BYTE_READ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.PH_BINARY_CALIB_STATUS">
+<span class="sig-name descname"><span class="pre">PH_BINARY_CALIB_STATUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{0:</span> <span class="pre">'nothing',</span> <span class="pre">1:</span> <span class="pre">'only</span> <span class="pre">low',</span> <span class="pre">2:</span> <span class="pre">'only</span> <span class="pre">mid',</span> <span class="pre">3:</span> <span class="pre">'low</span> <span class="pre">and</span> <span class="pre">mid',</span> <span class="pre">4:</span> <span class="pre">'only</span> <span class="pre">high',</span> <span class="pre">5:</span> <span class="pre">'low</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">6:</span> <span class="pre">'mid</span> <span class="pre">and</span> <span class="pre">high',</span> <span class="pre">7:</span> <span class="pre">'all'}</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.PH_BINARY_CALIB_STATUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.THREE_BYTE_READ">
+<span class="sig-name descname"><span class="pre">THREE_BYTE_READ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.THREE_BYTE_READ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.TWO_BYTE_READ">
+<span class="sig-name descname"><span class="pre">TWO_BYTE_READ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.TWO_BYTE_READ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.address">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">address</span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>getter i2c address of the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>i2c address of the device on the i2c bus</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.bus_number">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bus_number</span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.bus_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>bus_number property</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the i2c bus number</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.debug">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">debug</span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>debug property</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter</dt>
+<dd class="field-odd"><p>debug flag</p>
+</dd>
+<dt class="field-even">Setter</dt>
+<dd class="field-even"><p>change debug flag</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: <cite>True</cite> if the debug mode is ON, <cite>False</cite> if not</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.list_i2c_devices">
+<span class="sig-name descname"><span class="pre">list_i2c_devices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.list_i2c_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>get i2c devices on the bus
+:return: list of i2c addresses on the bus
+:rtype: list</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.long_timeout">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">long_timeout</span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.long_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>long delay to wait</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>long delay in milliseconds</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.moduletype">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">moduletype</span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.moduletype" title="Permalink to this definition">¶</a></dt>
+<dd><p>getter module type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>get module type</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of OEM circuit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name of OEM circuit</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.print_all_registers_values">
+<span class="sig-name descname"><span class="pre">print_all_registers_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.print_all_registers_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print all register values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">register</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>read data from i2c bus
+:param register &gt; int i2c register to read
+:param num_of_byte &gt; int number of bytes to read started from the register
+:return: raw value from i2c bus
+:rtype: bytes</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.short_timeout">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">short_timeout</span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.short_timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>short delay to wait</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>short delay in milliseconds</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">register</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>write data through i2c bus
+:param register &gt; int i2c register to read
+:param v &gt; int/bytearray to write through i2c</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="greenponik-atlas-scientific-oem-i2c-commonsi2c-module">
-<h2>GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c module<a class="headerlink" href="#greenponik-atlas-scientific-oem-i2c-commonsi2c-module" title="Permalink to this headline">¶</a></h2>
 </section>
-<section id="greenponik-atlas-scientific-oem-i2c-eci2c-module">
-<h2>GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c module<a class="headerlink" href="#greenponik-atlas-scientific-oem-i2c-eci2c-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c">
+<span id="greenponik-atlas-scientific-oem-i2c-commonsi2c-module"></span><h2>GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c module<a class="headerlink" href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c" title="Permalink to this headline">¶</a></h2>
+<section id="id1">
+<h3>Description<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Class to communicate with Atlas Scientific OEM sensors in I2C mode.
+Atlas Scientific i2c by GreenPonik
+Source code is based on Atlas Scientific documentations:</p>
+<p><a class="reference external" href="https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf">https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf</a></p>
+<p><a class="reference external" href="https://atlas-scientific.com/files/oem_pH_datasheet.pdf">https://atlas-scientific.com/files/oem_pH_datasheet.pdf</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c.</span></span><span class="sig-name descname"><span class="pre">_CommonsI2c</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moduletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c" title="GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c._AtlasOEMI2c</span></code></a></p>
+<p>commons methods for EC and PH OEM circuits</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c._check_calibration_confirm">
+<span class="sig-name descname"><span class="pre">_check_calibration_confirm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confirm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c._check_calibration_confirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>check the response of calibration confirm register</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c._convert_raw_hex_to_float">
+<span class="sig-name descname"><span class="pre">_convert_raw_hex_to_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte_array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c._convert_raw_hex_to_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert bytearray response to float result
+return float converted value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c._set_calibration_registers">
+<span class="sig-name descname"><span class="pre">_set_calibration_registers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c._set_calibration_registers" title="Permalink to this definition">¶</a></dt>
+<dd><p>calibration registers
+do not use alone because calibration is apply by using set_calibration_apply
+/!in float micro siemens µS for EC/!
+/! in float for pH/!</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_calibration">
+<span class="sig-name descname"><span class="pre">get_calibration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_calibration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current calibrations data
+:return: string with current points calibrated
+:rtype:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_device_info">
+<span class="sig-name descname"><span class="pre">get_device_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_device_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get device information
+&#64;return string module type, firmware version</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_firmware">
+<span class="sig-name descname"><span class="pre">get_firmware</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_firmware" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read sensor firmware
+&#64;return int the firmware revision</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_led">
+<span class="sig-name descname"><span class="pre">get_led</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_led" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get led state
+register is the same for EC and PH OEM circuit
+:return: int 0x00 = OFF or 0x01 = ON
+:rtype: int</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_new_read_available">
+<span class="sig-name descname"><span class="pre">get_new_read_available</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_new_read_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>New Read is available
+&#64;return int 1 if new read available, 0 if not</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_read">
+<span class="sig-name descname"><span class="pre">get_read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read sensor value
+&#64;return float the sensor value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_temperature">
+<span class="sig-name descname"><span class="pre">get_temperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current compensation temperature
+&#64;return float temperature value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_type">
+<span class="sig-name descname"><span class="pre">get_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read sensor type
+&#64;return int the sensor type (1=EC, 4=PH)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_wakeup_sleep_mode">
+<span class="sig-name descname"><span class="pre">get_wakeup_sleep_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.get_wakeup_sleep_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>get Active or Hibernate device mode
+register is the same for EC and PH OEM circuit
+:return: int 0x01 = WakeUp or 0x00 = Hibernate
+:rtype: int</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_ack_new_read_available">
+<span class="sig-name descname"><span class="pre">set_ack_new_read_available</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_ack_new_read_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ack new Read available</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_calibration_apply">
+<span class="sig-name descname"><span class="pre">set_calibration_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_calibration_apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>apply the calibration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – float solution calibration value converted in float. EC waiting for µS e.g. 1.413 = &gt; 1413.0</p></li>
+<li><p><strong>point</strong> – string “dry”, “single”, “low”, “mid”, “high” only</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_calibration_clear">
+<span class="sig-name descname"><span class="pre">set_calibration_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_calibration_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>clear calibration data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_i2c_addr">
+<span class="sig-name descname"><span class="pre">set_i2c_addr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_i2c_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the device i2c address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>addr</strong> – int = new i2c add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_led">
+<span class="sig-name descname"><span class="pre">set_led</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_led" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change Led state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> – byte state =&gt; 0x01 = ON or 0x00 = OFF</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_temperature">
+<span class="sig-name descname"><span class="pre">set_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the compensation temperature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> – float temperature value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_wakeup_sleep_mode">
+<span class="sig-name descname"><span class="pre">set_wakeup_sleep_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c.set_wakeup_sleep_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>change device mode to Active or Hibernate
+register is the same for EC and PH OEM circuit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>byte</strong> – action =&gt; 0x01 = WakeUp or 0x00 = Hibernate</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="greenponik-atlas-scientific-oem-i2c-phi2c-module">
-<h2>GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c module<a class="headerlink" href="#greenponik-atlas-scientific-oem-i2c-phi2c-module" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c">
+<span id="greenponik-atlas-scientific-oem-i2c-eci2c-module"></span><h2>GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c module<a class="headerlink" href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h3>Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Class to communicate with Atlas Scientific OEM sensors in I2C mode.
+Atlas Scientific i2c by GreenPonik
+Source code is based on Atlas Scientific documentations:</p>
+<p><a class="reference external" href="https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf">https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf</a></p>
+<p><a class="reference external" href="https://atlas-scientific.com/files/oem_pH_datasheet.pdf">https://atlas-scientific.com/files/oem_pH_datasheet.pdf</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c.ECI2c">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c.</span></span><span class="sig-name descname"><span class="pre">ECI2c</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moduletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c.ECI2c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c" title="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c</span></code></a></p>
+<p>specific methods for OEM EC module</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c.ECI2c.get_k_probe">
+<span class="sig-name descname"><span class="pre">get_k_probe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c.ECI2c.get_k_probe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current ec probe k</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c.ECI2c.set_k_probe">
+<span class="sig-name descname"><span class="pre">set_k_probe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c.ECI2c.set_k_probe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ec probe k</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="module-GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c">
+<span id="greenponik-atlas-scientific-oem-i2c-phi2c-module"></span><h2>GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c module<a class="headerlink" href="#module-GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c" title="Permalink to this headline">¶</a></h2>
+<section id="id3">
+<h3>Description<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Class to communicate with Atlas Scientific OEM sensors in I2C mode.
+Atlas Scientific i2c by GreenPonik
+Source code is based on Atlas Scientific documentations:</p>
+<p><a class="reference external" href="https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf">https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf</a></p>
+<p><a class="reference external" href="https://atlas-scientific.com/files/oem_pH_datasheet.pdf">https://atlas-scientific.com/files/oem_pH_datasheet.pdf</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.</span></span><span class="sig-name descname"><span class="pre">PHI2c</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moduletype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c" title="GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c"><code class="xref py py-class docutils literal notranslate"><span class="pre">GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c._CommonsI2c</span></code></a></p>
+<p>specific methods for OEM PH module</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c.get_slope_probe">
+<span class="sig-name descname"><span class="pre">get_slope_probe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c.PHI2c.get_slope_probe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pH probe slope</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 </section>
 
