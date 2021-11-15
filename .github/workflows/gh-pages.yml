@@ -34,6 +34,7 @@ jobs:
       - name: "Install Python dependencies"
         run: |
           pip3 install setuptools
+          pip3 install -r requirements.txt
           pip3 install Sphinx sphinx-press-theme m2r2
 
       - name: "Build Sphinx Doc"
