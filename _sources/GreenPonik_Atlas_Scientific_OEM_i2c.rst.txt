@@ -1,8 +1,8 @@
 GreenPonik_Atlas_Scientific_OEM_i2c package
 ===========================================
 
-AtlasOEMI2c class
------------------
+GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c class
+-----------------------------------------------------
 
 .. automodule:: GreenPonik_Atlas_Scientific_OEM_i2c.AtlasOEMI2c
    :members:
@@ -11,8 +11,8 @@ AtlasOEMI2c class
    :private-members:
    :inherited-members:
 
-CommonsI2c class
-----------------
+GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c class
+----------------------------------------------------
 
 .. automodule:: GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c
    :members:
@@ -20,8 +20,8 @@ CommonsI2c class
    :show-inheritance:
    :private-members:
 
-ECI2c class
------------
+GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c class
+-----------------------------------------------
 
 .. automodule:: GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c
    :members:
@@ -29,8 +29,8 @@ ECI2c class
    :show-inheritance:
 
 
-PHI2c class
------------
+GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c class
+-----------------------------------------------
 
 .. automodule:: GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c
    :members:
