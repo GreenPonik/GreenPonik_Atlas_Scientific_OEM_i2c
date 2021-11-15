@@ -19,6 +19,7 @@ GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c module
    :undoc-members:
    :show-inheritance:
    :private-members:
+   :inherited-members:
 
 GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c module
 ------------------------------------------------
@@ -27,7 +28,8 @@ GreenPonik_Atlas_Scientific_OEM_i2c.ECI2c module
    :members:
    :undoc-members:
    :show-inheritance:
-
+   :private-members:
+   :inherited-members:
 
 GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c module
 ------------------------------------------------
@@ -36,3 +38,5 @@ GreenPonik_Atlas_Scientific_OEM_i2c.PHI2c module
    :members:
    :undoc-members:
    :show-inheritance:
+   :private-members:
+   :inherited-members:
