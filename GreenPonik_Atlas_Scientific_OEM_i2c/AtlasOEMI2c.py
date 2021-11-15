@@ -298,7 +298,7 @@ class _AtlasOEMI2c:
         :param m: set the module type
         :type m: string
         """
-        assert(m.upper() in ALLOWED_MODULES_TYPES)
+        assert(m.upper() in self.ALLOWED_MODULES_TYPES)
         self._module = m.upper()
 
     def __init__(self, bus=DEFAULT_BUS, addr=None, moduletype=""):
