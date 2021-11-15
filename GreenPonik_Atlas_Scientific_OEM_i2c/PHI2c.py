@@ -6,7 +6,9 @@ Description
 Class to communicate with Atlas Scientific OEM sensors in I2C mode.
 Atlas Scientific i2c by GreenPonik
 Source code is based on Atlas Scientific documentations:
+
 https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf
+
 https://atlas-scientific.com/files/oem_pH_datasheet.pdf
 """
 from GreenPonik_Atlas_Scientific_OEM_i2c.CommonsI2c import _CommonsI2c

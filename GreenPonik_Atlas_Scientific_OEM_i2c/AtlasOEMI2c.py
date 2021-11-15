@@ -6,7 +6,9 @@ Description
 Class to communicate with Atlas Scientific OEM sensors in I2C mode.
 Atlas Scientific i2c by GreenPonik
 Source code is based on Atlas Scientific documentations:
+
 https://www.atlas-scientific.com/files/EC_oem_datasheet.pdf
+
 https://atlas-scientific.com/files/oem_pH_datasheet.pdf
 """
 import time
@@ -192,18 +194,18 @@ class _AtlasOEMI2c:
 
     @property
     def bus_number(self):
-        """debug property
+        """bus_number property
 
-        :return: `True` if the debug mode is ON, `False` if not
+        :return: the i2c bus number
         :rtype: int
         """
         return self._bus_number
 
     @bus_number.setter
     def bus_number(self, bus_number: int) -> None:
-        """debug property
+        """bus_number property
 
-        :param bus_number: `True` to set debug mode ON, `False` to set debug mode OFF
+        :param bus_number: the i2c bus number
         :type bus_number: int
         """
         self._bus_number = bus_number

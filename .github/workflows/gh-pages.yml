@@ -40,7 +40,7 @@ jobs:
         run: |
           mkdir docs/
           sphinx-apidoc -o docsource/ docs/
-          sphinx-build -b html docsource docs/
+          sphinx-build -b html docsource/ docs/
           touch docs/.nojekyll
 
       # 3. Déploiement sur les Github Pages
