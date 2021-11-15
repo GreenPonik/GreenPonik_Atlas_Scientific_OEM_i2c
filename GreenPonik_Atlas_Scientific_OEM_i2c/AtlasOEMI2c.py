@@ -365,8 +365,8 @@ class _AtlasOEMI2c:
             print("Write %s on register: %s" % (v, hex(register)))
 
     def list_i2c_devices(self) -> list:
-        """save the current address so we can restore it after
-        :return: list àf i2c addresses on the bus
+        """get i2c devices on the bus
+        :return: list of i2c addresses on the bus
         :rtype: list
         """
         with I2C(self._bus_number) as i2c:

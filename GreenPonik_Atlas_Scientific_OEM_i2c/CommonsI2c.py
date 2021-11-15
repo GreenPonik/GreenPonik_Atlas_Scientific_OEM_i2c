@@ -156,7 +156,8 @@ class _CommonsI2c(_AtlasOEMI2c):
     def get_calibration(self):
         """
         Get current calibrations data
-        @return string with current points calibrated
+        :return: string with current points calibrated
+        :rtype: 
         """
         if "EC" == self.moduletype:
             register = self.OEM_EC_REGISTERS["device_calibration_confirm"]
@@ -181,11 +182,12 @@ class _CommonsI2c(_AtlasOEMI2c):
             print("Who is calibrated? >", binary_calib_status[r])
         return binary_calib_status[r]
 
-    def get_led(self):
+    def get_led(self) -> int:
         """
         Get led state
         register is the same for EC and PH OEM circuit
-        @return byte/int 0x00/0 = OFF / 0x01/1 = ON
+        :return: int 0x00 = OFF or 0x01 = ON
+        :rtype: int
         """
         register = self.OEM_EC_REGISTERS["device_led"]
         led_status = self.read(register)
@@ -193,11 +195,12 @@ class _CommonsI2c(_AtlasOEMI2c):
             print("Led status is currently:  %s" % hex(led_status))
         return led_status
 
-    def get_wakeup_sleep_mode(self):
+    def get_wakeup_sleep_mode(self) -> int:
         """
         get Active or Hibernate device mode
         register is the same for EC and PH OEM circuit
-        @return byte/int 0x01/1 = WakeUp / 0x00/0 = Hibernate
+        :return: int 0x01 = WakeUp or 0x00 = Hibernate
+        :rtype: int
         """
         register = self.OEM_EC_REGISTERS["device_sleep"]
         mode = self.read(register)
@@ -206,13 +209,14 @@ class _CommonsI2c(_AtlasOEMI2c):
                 "Device is currently in mode:  %s"
                 % ("wakeup" if hex(0x01) == hex(mode) else "sleep")
             )
+        return mode
 
     # ----- Setters ----- ########
 
     def set_temperature(self, t=25.0):
-        """
-        Set the compensation temperature
-        @param t = float temperature value
+        """Set the compensation temperature
+
+        :param t: float temperature value
         """
         self.set_wakeup_sleep_mode(0x01)  # wake device before set temperature
         time.sleep(self._long_timeout)
@@ -232,8 +236,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         self.set_wakeup_sleep_mode(0x00)  # sleep device after set temperature
 
     def _set_calibration_registers(self, value):
-        """
-        calibration registers
+        """calibration registers
         do not use alone because calibration is apply by using set_calibration_apply
         /!in float micro siemens µS for EC/!
         /! in float for pH/!
@@ -254,10 +257,10 @@ class _CommonsI2c(_AtlasOEMI2c):
             )
 
     def set_calibration_apply(self, value, point=""):
-        """
-        apply the calibration
-        @param float value => solution calibration value converted in float. EC waiting for µS e.g. 1.413 = > 1413.0
-        @param string point => "dry", "single", "low", "mid", "high" only
+        """apply the calibration
+
+        :param value: float solution calibration value converted in float. EC waiting for µS e.g. 1.413 = > 1413.0
+        :param point: string "dry", "single", "low", "mid", "high" only
         """
         if point not in ("dry", "single", "low", "mid", "high"):
             raise Exception(
@@ -279,8 +282,7 @@ class _CommonsI2c(_AtlasOEMI2c):
         return conf
 
     def set_calibration_clear(self):
-        """
-        Clear calibration data
+        """clear calibration data
         """
         if "EC" == self.moduletype:
             register = self.OEM_EC_REGISTERS["device_calibration_request"]
@@ -293,10 +295,9 @@ class _CommonsI2c(_AtlasOEMI2c):
         return conf
 
     def set_i2c_addr(self, addr):
-        """
-        Change the device i2c address
-        @param device = AltasI2c instance
-        @param int = new i2c add
+        """Change the device i2c address
+
+        :param addr: int = new i2c add
         """
         if addr not in self.ADDR_OEM_HEXA and addr not in self.ADDR_OEM_DECIMAL:
             raise Exception(
@@ -311,9 +312,9 @@ class _CommonsI2c(_AtlasOEMI2c):
             raise NotImplementedError("write workflow to change physical i2c address")
 
     def set_led(self, state=0x01):
-        """
-        Change Led state
-        @param byte/int state => 0x01/1 = On / 0x00/0 = Off
+        """Change Led state
+
+        :param state: byte state => 0x01 = ON or 0x00 = OFF
         """
         register = self.OEM_EC_REGISTERS["device_led"]
         self.write(register, state)
@@ -324,10 +325,10 @@ class _CommonsI2c(_AtlasOEMI2c):
             )
 
     def set_wakeup_sleep_mode(self, action=0x01):
-        """
-        change device mode to Active or Hibernate
+        """change device mode to Active or Hibernate
         register is the same for EC and PH OEM circuit
-        @param byte/int action => 0x01/1 = WakeUp / 0x00/0 = Hibernate
+
+        :param byte: action => 0x01 = WakeUp or 0x00 = Hibernate
         """
         register = self.OEM_EC_REGISTERS["device_sleep"]
         self.write(register, action)
@@ -338,8 +339,7 @@ class _CommonsI2c(_AtlasOEMI2c):
             )
 
     def set_ack_new_read_available(self):
-        """
-        Ack new Read available
+        """Ack new Read available
         """
         register = self.OEM_EC_REGISTERS["device_new_reading"]
         ack = 0x00

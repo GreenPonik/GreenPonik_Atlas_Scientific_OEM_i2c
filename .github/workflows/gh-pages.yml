@@ -39,10 +39,9 @@ jobs:
       - name: "Build Sphinx Doc"
         run: |
           mkdir docs/
-          sphinx-apidoc -o docsource/ docs/
           sphinx-build -b html docsource/ docs/
           touch docs/.nojekyll
-
+      #   sphinx-apidoc -o docsource/ docs/
       # 3. Déploiement sur les Github Pages
 
       - name: "Deploy Github Pages"
