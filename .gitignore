@@ -15,3 +15,4 @@ venv/
 # due to using tox and pytest
 .tox
 .cache
+docs
