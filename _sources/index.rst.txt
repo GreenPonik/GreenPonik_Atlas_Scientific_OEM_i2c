@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to GreenPonik Atlas Scientific OEM i2c's documentation!
-=====================================================
+===============================================================
 
 .. toctree::
    :maxdepth: 2
